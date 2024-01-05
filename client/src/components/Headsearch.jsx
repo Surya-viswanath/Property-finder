@@ -14,17 +14,23 @@ function Headsearch() {
             />
           </Col>
           <Col xs="auto">
-            <Button type="submit" className='buttt'>
-            <NavDropdown title="Buy" id="basic-nav-dropdown" className='item'>
-              <NavDropdown.Item className='droppro' href="#action/3.1">Explore with DataGuru<span style={{backgroundColor:'#7363ba', color:'white',fontSize:'10px',padding:'5px',fontWeight:'700'}}>NEW</span></NavDropdown.Item>
-              
-              <NavDropdown.Item href="#action/3.2" className='droppro'>Property Blog</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2" className='droppro'>Mo'asher: Dubai Price Index</NavDropdown.Item>
-            </NavDropdown>
-            </Button>
+          <Form.Select aria-label="Default select example">
+      <option value="1">Buy</option>
+      <option value="2">Rent</option>
+      <option value="3">Commercial rent</option>
+      <option value="4">Commercial buy</option>
+    </Form.Select>
           </Col>
           <Col xs="auto">
-            <Button type="submit" className='buttt'>hgf</Button>
+          <Form.Select aria-label="Default select example">
+      <option value="1">Property type</option>
+      <option value="2">Apartment</option>
+      <option value="3">Villa</option>
+      <option value="4">Townhouse</option>
+      <option value="5">Penthouse</option>
+      <option value="6">Compound</option>
+      <option value="7">Duplex</option>
+    </Form.Select>
           </Col>
           <Col xs="auto">
             <Button type="submit" className='buttt'>Beds & Baths</Button>
