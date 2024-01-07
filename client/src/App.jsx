@@ -10,15 +10,17 @@ import CreateListing from './pages/CreateListing';
 import UpdateListing from './pages/UpdateListing';
 import Listing from './pages/Listing';
 import Search from './pages/Search';
-import Menu from './components/Menu';
-import Headsearch from './components/Headsearch';
+
+import Banner from './components/Banner';
+import Mmenu from './components/Mmenu';
+import Login from './components/Login';
 
 export default function App() {
   return (
     <BrowserRouter>
-      <Header />
+      <Header/>
       <Routes>
-        <Route path='/' element={<><Menu/>,<Headsearch/>,<Home /></>} />
+        <Route path='/' element={<><Mmenu/>,<Home/>,<Banner/></>} />
         <Route path='/sign-in' element={<SignIn />} />
         <Route path='/sign-up' element={<SignUp />} />
         <Route path='/about' element={<About />} />

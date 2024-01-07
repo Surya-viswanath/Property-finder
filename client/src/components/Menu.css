@@ -1,6 +1,22 @@
-.item:hover{
+li:hover{
     color: #ef5e4e;
 }
 .buttt{
     color: black;
+}
+li{
+    margin-left: 15px;
+}
+.icondown{
+    margin-top: 5px;
+}
+.loginsub{
+    background-image: url('signin.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 50%;
+}
+.view{
+    margin-top: 300px;
+    text-align: center;
 }
