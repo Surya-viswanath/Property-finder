@@ -149,19 +149,31 @@ export default function Mmenu() {
             </li>
           </Link>
          
-          {/* <Link to='/about'>
-            <li className='hidden sm:inline'>
-              Log in
-            </li>
-          </Link> */}
-          {/* <button onClick={openModal} className="bg-blue-500 text-white p-2">
-        Log in
-      </button> */}
+          
+    <li>
       <div style={{alignItems:'center',marginLeft:'10px'}}>
       <button onClick={openModal}>Log in</button>
       <Modal isOpen={isModalOpen} onClose={closeModal} />
       </div>
-            
+           </li> 
+
+          
+
+<div class="w-full divide-y divide-gray-100">
+    <li class="dropdown inline cursor-pointer ">
+        <a>Login</a>
+        <div class="dropdown-menu hidden"  style={{width:'230px',textAlign:'center'}}>
+          <div bg-white>
+            <p style={{fontSize: '13px'}}>Sign in or register to sync your<br></br> favorite properties across devices</p><br></br>
+            <button style={{color:'white',backgroundColor:'#EF5E4E',width:'200px',height:'40px'}}>Sign in</button><br></br>
+           <Link to='#'><p style={{fontSize:'15px',padding:'10px 0px'}}>Create new account</p></Link> 
+           <p py-1>Saved properties</p>
+          
+            </div>
+        </div>
+    </li>
+   
+</div>
         </ul>
 
 

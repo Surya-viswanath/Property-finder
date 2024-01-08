@@ -19,4 +19,9 @@ li{
 .view{
     margin-top: 300px;
     text-align: center;
+    
 }
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+  }
