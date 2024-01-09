@@ -63,14 +63,14 @@ const Modal = ({ isOpen, onClose }) => {
       <div className="modal-container" style={{alignItems:'center',width:'700px',margin:'auto',marginTop:'50px',borderRadius:'15px'}}>
         <div className="modal-content" style={{height:'500px'}}>
           <div className="modal-header">
-            <span className="modal-title">Welcome to Property Finder</span>
+            <span className="modal-title" style={{color:'black'}}>Welcome to Property Finder</span>
             <button className="modal-close" onClick={onClose}>
               &times;
             </button>
           </div>
           <div style={{display:'flex'}}>
             <div className='loginsub'>
-                <p className='view'>View saved properties<br></br>
+                <p className='view' style={{color:'black'}}>View saved properties<br></br>
 Keep search history across devices<br></br>
 See which properties you have <br></br>contacted</p>
             </div>
@@ -126,7 +126,7 @@ See which properties you have <br></br>contacted</p>
       {error && <p className='text-red-500 mt-5'>{error}</p>} */}
 
       <div className='flex gap-2 mt-5'>
-        <p style={{fontsize:'10.464px'}}>By registering you accept our Terms & Conditions and our privacy policy.</p>
+        <p style={{fontsize:'10.464px',color:'black'}}>By registering you accept our Terms & Conditions and our privacy policy.</p>
       </div>
     </div>
           

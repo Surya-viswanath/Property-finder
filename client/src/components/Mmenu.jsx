@@ -35,7 +35,7 @@ export default function Mmenu() {
     setModalOpen(false);
   };
   return (
-    <header className=''>
+    <header style={{backgroundColor:'white'}}>
       <div className='flex   items-center max-w-5xl mx-auto p-3'>
        <img src={logo} width={'120px'}></img>
         <ul className='flex'>
@@ -150,22 +150,24 @@ export default function Mmenu() {
           </Link>
          
           
-    <li>
+    {/* <li>
       <div style={{alignItems:'center',marginLeft:'10px'}}>
       <button onClick={openModal}>Log in</button>
       <Modal isOpen={isModalOpen} onClose={closeModal} />
       </div>
-           </li> 
+           </li>  */}
 
           
 
 <div class="w-full divide-y divide-gray-100">
     <li class="dropdown inline cursor-pointer ">
-        <a>Login</a>
+        {/* <a>Login</a> */}
+        <button onClick={openModal}>Log in</button>
+      <Modal isOpen={isModalOpen} onClose={closeModal} />
         <div class="dropdown-menu hidden"  style={{width:'230px',textAlign:'center'}}>
           <div bg-white>
             <p style={{fontSize: '13px'}}>Sign in or register to sync your<br></br> favorite properties across devices</p><br></br>
-            <button style={{color:'white',backgroundColor:'#EF5E4E',width:'200px',height:'40px'}}>Sign in</button><br></br>
+            <button style={{color:'white',backgroundColor:'#EF5E4E',width:'200px',height:'40px'}} onClick={openModal}>Sign in</button><br></br>
            <Link to='#'><p style={{fontSize:'15px',padding:'10px 0px'}}>Create new account</p></Link> 
            <p py-1>Saved properties</p>
           
