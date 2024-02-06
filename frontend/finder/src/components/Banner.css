@@ -1,0 +1,18 @@
+.banner{
+    background-image: url('home-here.webp');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; 
+    background-color: 'white';
+    width: 100%;
+    height:100vh;
+}
+.find{
+    color: white;
+    font-size: 41.856px;
+    text-align: center;
+   font-weight: 600;
+   line-height: 7.2rem;
+   text-shadow: 0 2px 9px rgba(0,0,0,.25);
+   padding-top: 10%;
+}

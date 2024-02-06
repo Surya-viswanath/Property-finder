@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import userRouter from './routes/user.route.js';
 import authRouter from './routes/auth.route.js';
 import listingRouter from './routes/listing.route.js';
+
 import cookieParser from 'cookie-parser';
 import path from 'path';
 dotenv.config();
@@ -31,6 +32,7 @@ app.listen(PORT, () =>
 app.use('/api/user', userRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/listing', listingRouter);
+// app.use('/list', createListing);
 
 
 app.use(express.static(path.join(__dirname, '/client/dist')));
@@ -48,3 +50,25 @@ app.use((err, req, res, next) => {
     message,
   });
 });
+
+
+// const express = require('express');
+// const connection = require('./config/Mong');
+// // const router = require('./Router/Router1');
+// const cors =require("cors");
+// const app = express();
+// const dotenv = require('dotenv');
+// const router = require('./routes/Router');
+
+// connection();
+// app.use(express.json());
+
+// dotenv.config();
+// app.use(cors());
+
+// app.use('/',router)
+
+
+// const port  = process.env.port || 4000
+
+// app.listen(port,console.log(`server is running on ${port}`));

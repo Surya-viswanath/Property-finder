@@ -1,14 +1,27 @@
-import Listing from '../models/listing.model.js';
+// import Listing from '../models/listing.model.js';
 import { errorHandler } from '../utils/error.js';
+import Listing from './listingschema.js';
+
+
 
 export const createListing = async (req, res, next) => {
   try {
-    const listing = await Listing.create(req.body);
+    const listing = await listingItem.create(req.body);
     return res.status(201).json(listing);
   } catch (error) {
     next(error);
   }
 };
+// const createListing = async (req, res) => {
+//   const{ name,description,address,regularPrice,discountPrice, bathrooms,bedrooms,furnished,parking,type,offer,image}=req.body;
+  
+//     const listingdetails = await listingItem.create({
+//       name,description,address,regularPrice,discountPrice, bathrooms,bedrooms,furnished,parking,type,offer,image
+//     })
+//     res.json(listingdetails);
+// }
+// module.exports = createListing;
+
 
 export const deleteListing = async (req, res, next) => {
   const listing = await Listing.findById(req.params.id);

@@ -14,6 +14,9 @@ import Search from './pages/Search';
 import Banner from './components/Banner';
 import Mmenu from './components/Mmenu';
 import Login from './components/Login';
+import Addplace from './pages/Addplace';
+
+import Land from './components/Land';
 
 export default function App() {
   return (
@@ -21,6 +24,10 @@ export default function App() {
       <Header/>
       <Routes>
         <Route path='/' element={<><Mmenu/>,<Home/>,<Banner/></>} />
+        <Route path='/list' element={<><Mmenu/>,<Addplace/></>}/>
+        <Route path='/card' element={<><Mmenu/>,<Land/></>}/>
+
+
         <Route path='/sign-in' element={<SignIn />} />
         <Route path='/sign-up' element={<SignUp />} />
         <Route path='/about' element={<About />} />
