@@ -1,4 +1,4 @@
-import React, {  useState } from 'react'
+import React, {  useEffect, useState } from 'react'
 import './Menu.css'
 import { Button, Col, Container, Dropdown, Form, Modal, Nav, Navbar, Row } from 'react-bootstrap'
 import axios from 'axios'
@@ -8,7 +8,7 @@ import logo from './download.png';
 function Menus() {
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
-
+const [first,setfirst]= useState([]);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   
@@ -27,13 +27,6 @@ function Menus() {
   const handlepassword=(event)=>{
     setpassword(event.target.value);
   };
-  
-  
-  // const handleSubmit = async (event)=>{
-  //   event.preventDefault();
-  //   const display=await axios.post('http://localhost:4008/createagent',{email,password})
-  //   console.log(display.data);
-  // }
   const handleSubmit = async (event) => {
     const pname=name;
     const pemail=email;
@@ -45,21 +38,45 @@ function Menus() {
       console.error('Axios Error:', error);
     }
     alert(` ${name} successfully logined..!!!`)
-    navigate(`/open/${pname}/${pemail}`);
-
+    handleClose ();
+    navigate(`/open/${pemail}/${pname}`)
+     
   };
-  
+
+
+
+  useEffect(() => {
+    const handleItems = async () => {
+      try {
+        const response = await axios.get('http://localhost:4008/getpro');
+        setfirst(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    handleItems();
+  }, []);
   return (
     <div>
       <Navbar collapseOnSelect expand="lg" style={{display:'flex'}}>
         <Container className='menuu'>
-        <img src={logo} width={'120px'}></img>
+        <Link to="/" style={{textDecoration:'none'}}><img src={logo} width={'120px'}></img></Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home" className='meenu'>Buy</Nav.Link>
-            <Nav.Link href="#features"  className='meenu'>Rent</Nav.Link>
+          {/* {first.map(property => (
+          <li>
+           <Link to={`/buy/${property.sell}`}> <Nav.Link  className='meenu'>Buy</Nav.Link></Link>
+            {/* <Nav.Link href="#features"  className='meenu'>Rent</Nav.Link>
             <Nav.Link href="#pricing"  className='meenu'>Commercial</Nav.Link>
+            <Nav.Link href="#pricing"  className='meenu'>New projects</Nav.Link> */}
+           
+          {/* </li> */}
+        {/* ))} */}
+            <Nav.Link href={`/buy/Buy`} className='meenu'>Buy</Nav.Link>
+            <Nav.Link href={`/rent/Rent`}  className='meenu'>Rent</Nav.Link>
+            <Nav.Link href={`/commercial/commercial`}  className='meenu'>Commercial</Nav.Link>
             <Nav.Link href="#pricing"  className='meenu'>New projects</Nav.Link>
             <Nav.Link href="#pricing"  className='meenu'>Find agent</Nav.Link>
            
@@ -145,8 +162,10 @@ See which properties you have <br></br>contacted</p>
       
       />
     </Form.Group>
+   
+
     <Button 
-    type="submit" style={{backgroundColor:'#ef5e4e',border:'none'}} >
+    type="submit" style={{backgroundColor:'#ef5e4e',border:'none'}}  >
     Login
     </Button>
   </Form>

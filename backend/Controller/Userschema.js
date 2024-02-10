@@ -4,7 +4,7 @@ const AgentSchema =mongoose.Schema({
 name: {type: String,required: true},
 password:{type: String,required: true},
 email :{type: String,required: true,unique: true},
-profile: {type: Array,required: true},
+profile: {type:Array,required: true},
 nationality:{type: String,required: true},
 languages:{type: String,required: true},
 experience:{type: String,required: true},

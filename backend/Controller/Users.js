@@ -13,6 +13,13 @@ const Createagent=async(req,res) => {
     })
     res.json(agentdetails)
 }
-module.exports = Createagent
+
+
+const getagent=async(req,res)=>{
+    const agentList = await Agent.find()
+    res.json(agentList)
+}
+
+module.exports = {Createagent,getagent}
 
  

@@ -1,11 +1,10 @@
-
 import React, { useState } from 'react'
 import { Button, Form } from 'react-bootstrap'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios';
 import './Signup.css'
 
-function Addpro() {
+function Propertyadding() {
   
     const [description, setdescription] = useState('');
     const [address, setaddress] = useState('');
@@ -22,6 +21,7 @@ function Addpro() {
      const [phone, setphone] = useState('');
     const [image, setimage] = useState([]);
     const [location, setlocation] = useState('');
+    const [sell, setsell] = useState('');
   const handledescription =(event)=>{
     setdescription(event.target.value);
   };
@@ -67,18 +67,18 @@ const handlephone=(event)=>{
   const handlelocation =(event)=>{
     setlocation(event.target.value);
   };
+  const handlesell =(event)=>{
+    setsell(event.target.value);
+  };
 const handleSubmit =async(event)=>{
     event.preventDefault()
     try{
-    const display =await axios.post('http://localhost:4008/createpro',{description,address,regularPrice,discountPrice,bathrooms,bedrooms,furnished,parking,type,offer,propertysize,phone,email,image,location});
-    console.log(display.data)
-    alert(` ${email} successfully created list..!!!`)
-    
-  }
+    const display =await axios.post('http://localhost:4008/createpro',{description,address,regularPrice,discountPrice,bathrooms,bedrooms,furnished,parking,type,offer,propertysize,phone,email,image,location,sell})
+    console.log(display.data)}
     catch{ 
 
     }
-    
+    alert(` ${email} successfully created list..!!!`)
    
   }
 
@@ -118,6 +118,17 @@ const handleSubmit =async(event)=>{
       placeholder="Enter the address"
       value={address}
       onChange={handleaddress}
+      required
+      
+      />
+    </Form.Group>
+    <Form.Group className="mb-3" controlId="formBasicname">
+      <Form.Label>Buy,Ret or Commercial</Form.Label>
+      <Form.Control
+      type="text"
+      placeholder="Type here"
+      value={sell}
+      onChange={handlesell}
       required
       
       />
@@ -287,4 +298,4 @@ const handleSubmit =async(event)=>{
   )
 }
 
-export default Addpro
+export default Propertyadding

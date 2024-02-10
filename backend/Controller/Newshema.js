@@ -1,12 +1,6 @@
 const mongoose = require('mongoose');
 
-const ListingSchema =mongoose.Schema({
-
-    name: {
-              type: String,
-         required: true,
-           
-       },
+const newSchema =mongoose.Schema({
     description: {
           type: String,
             required: true,
@@ -16,11 +10,11 @@ const ListingSchema =mongoose.Schema({
              required: true,
           },
     regularPrice: {
-           type: Number,
+           type: String,
              required: true,
         },
     discountPrice: {
-          type: Number,
+          type: String,
             required: true,
          },
     bathrooms: {
@@ -43,6 +37,10 @@ const ListingSchema =mongoose.Schema({
               type: String,
               required: true,
             },
+            sell: {
+                type: String,
+                
+              },
     offer: {
               type: String,
               required: true,
@@ -70,9 +68,6 @@ const ListingSchema =mongoose.Schema({
             },
 });
 
-const listingItem = mongoose.model('listingItem',ListingSchema);
+const New = mongoose.model('New',newSchema);
 
-module.exports = listingItem;
-
-
-
+module.exports = New;
