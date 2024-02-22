@@ -5,7 +5,7 @@ import axios from 'axios';
 import './Signup.css'
 
 function Propertyadding() {
-  
+  const Navigate = useNavigate();
     const [description, setdescription] = useState('');
     const [address, setaddress] = useState('');
     const [regularPrice, setregularPrice] = useState('');
@@ -78,13 +78,29 @@ const handleSubmit =async(event)=>{
     catch{ 
 
     }
-    alert(` ${email} successfully created list..!!!`)
+    // Navigate(`/open/${pname}/${pemail}`)
+    Navigate(-1)
    
   }
+  const types = [
+    'Buy',
+    'Rent',
+    'commercial',
+  ];
 
-  
+  const propertytypes=[
+    'Apartments',
+    'Villas',
+    'Townhouses',
+    'Land',
+    'Bungalows',
+    'Hotel Apartments',
+   ' Compounds',
+   'Full Floors',
+   'Half Floors',
+  ];
   return (
-    <div className='add'>
+    <div className='add' style={{backgroundColor:'F7F6FB'}}>
       <h2>Add your property..</h2>
       
       <Form  onSubmit={handleSubmit}>
@@ -96,20 +112,11 @@ const handleSubmit =async(event)=>{
       value={description}
       onChange={handledescription}
       required
+      style={{fontSize: '14px',color:'#707070b5'}}
       />
     </Form.Group>
 
-    {/* <Form.Group className="mb-3" controlId="formBasicname">
-      <Form.Label>password</Form.Label>
-      <Form.Control
-      type="text"
-      placeholder="Enter password"
-      value={password}
-      onChange={handlepassword}
-      required
-      
-      />
-    </Form.Group> */}
+   
 
     <Form.Group className="mb-3" controlId="formBasicname">
       <Form.Label>Address</Form.Label>
@@ -119,10 +126,10 @@ const handleSubmit =async(event)=>{
       value={address}
       onChange={handleaddress}
       required
-      
+      style={{fontSize: '14px',color:'#707070b5'}}
       />
     </Form.Group>
-    <Form.Group className="mb-3" controlId="formBasicname">
+    {/* <Form.Group className="mb-3" controlId="formBasicname">
       <Form.Label>Buy,Ret or Commercial</Form.Label>
       <Form.Control
       type="text"
@@ -132,9 +139,21 @@ const handleSubmit =async(event)=>{
       required
       
       />
+    </Form.Group> */}
+    <Form.Group className='mb-3' controlId='formBasicname'>
+    <label htmlFor="nationality" style={{marginRight:'10px'}}>Type:</label>
+      <select id="nationality" value={sell} onChange={handlesell}>
+        <option value="" style={{padding:'10px',border:'5px solid black'}}>-- Select --</option>
+        {types.map((sell, index) => (
+          <option key={index} value={sell}>
+            {sell}
+          </option>
+        ))}
+      </select>
+     
     </Form.Group>
-
-    <Form.Group className="mb-3" controlId="formBasicname">
+<div style={{display:'flex'}}>
+    <Form.Group className="mb-3" controlId="formBasicname" style={{marginRight:'10px'}}>
       <Form.Label>RegularPrice</Form.Label>
       <Form.Control
       type="text"
@@ -142,10 +161,11 @@ const handleSubmit =async(event)=>{
       value={regularPrice}
       onChange={handleregularPrice}
       required
+      style={{fontSize: '14px',color:'#707070b5'}}
       />
     </Form.Group>
 
-    <Form.Group className="mb-3" controlId="formBasicname">
+    <Form.Group className="mb-3" controlId="formBasicname" style={{marginRight:'10px'}}>
       <Form.Label>Offer</Form.Label>
       <Form.Control
       type="text"
@@ -153,6 +173,7 @@ const handleSubmit =async(event)=>{
       value={offer}
       onChange={handleoffer}
       required
+      style={{fontSize: '14px',color:'#707070b5'}}
       />
     </Form.Group>
 
@@ -164,28 +185,32 @@ const handleSubmit =async(event)=>{
       value={discountPrice}
       onChange={handlediscountPrice}
       required
+      style={{fontSize: '14px',color:'#707070b5'}}
       />
     </Form.Group>
-
-    <Form.Group className="mb-3" controlId="formBasicname">
-      <Form.Label>Number of bathrooms</Form.Label>
+    </div>
+    <div style={{display:'flex'}}>
+    <Form.Group className="mb-3" controlId="formBasicname" style={{marginRight:'10px'}}>
+      <Form.Label>No: of bathrooms</Form.Label>
       <Form.Control
       type="text"
       placeholder="number of bathrooms"
       value={bathrooms}
       onChange={handlebathrooms}
       required
+      style={{fontSize: '14px',color:'#707070b5'}}
       />
     </Form.Group>
 
-    <Form.Group className="mb-3" controlId="formBasicname">
-      <Form.Label>Number of bedrooms</Form.Label>
+    <Form.Group className="mb-3" controlId="formBasicname" style={{marginRight:'10px'}}>
+      <Form.Label>No: of bedrooms</Form.Label>
       <Form.Control
       type="text"
       placeholder="bedrooms"
       value={bedrooms}
       onChange={handlebedrooms}
       required
+      style={{fontSize: '14px',color:'#707070b5'}}
       />
     </Form.Group>
 
@@ -197,10 +222,12 @@ const handleSubmit =async(event)=>{
       value={furnished}
       onChange={handlefurnished}
       required
+      style={{fontSize: '14px',color:'#707070b5'}}
       />
     </Form.Group>
-
-    <Form.Group className="mb-3" controlId="formBasicname">
+    </div>
+    <div style={{display:'flex'}}>
+    <Form.Group className="mb-3" controlId="formBasicname" style={{marginRight:'10px'}}>
       <Form.Label>parking</Form.Label>
       <Form.Control
       type="text"
@@ -208,21 +235,27 @@ const handleSubmit =async(event)=>{
       value={parking}
       onChange={handleparking}
       required
+      style={{fontSize: '14px',color:'#707070b5'}}
       />
     </Form.Group>
     
-    <Form.Group className="mb-3" controlId="formBasicname">
-      <Form.Label>Type</Form.Label>
-      <Form.Control
-      type="text"
-      placeholder="type"
-      value={type}
-      onChange={handletype}
-      required
-      />
+    
+
+<Form.Group className="mb-3" controlId="formBasicname" style={{marginRight:'10px',marginTop:'15px'}}>
+<label htmlFor="type" style={{marginRight:'10px'}}>Type:</label>
+      <select id="type" value={type} onChange={handletype}>
+        <option value="" style={{padding:'10px',border:'5px solid black'}}>-- Select --</option>
+        {propertytypes.map((type, index) => (
+          <option key={index} value={type}>
+            {type}
+          </option>
+        ))}
+      </select>
+
+
     </Form.Group>
 
-    <Form.Group className="mb-3" controlId="formBasicname">
+    <Form.Group className="mb-3" controlId="formBasicname" style={{marginRight:'10px'}}>
       <Form.Label>propertysize</Form.Label>
       <Form.Control
       type="text"
@@ -230,9 +263,24 @@ const handleSubmit =async(event)=>{
       value={propertysize}
       onChange={handlepropertysize}
       required
+      style={{fontSize: '14px',color:'#707070b5'}}
       />
     </Form.Group>
     
+    
+    
+    <Form.Group className="mb-3" controlId="formBasicname">
+      <Form.Label>Phone</Form.Label>
+      <Form.Control
+      type="text"
+      placeholder="Enter phone"
+      value={phone}
+      onChange={handlephone}
+      required
+      style={{fontSize: '14px',color:'#707070b5'}}
+      />
+    </Form.Group>
+    </div>
     <Form.Group className="mb-3" controlId="formBasicname">
       <Form.Label>email</Form.Label>
       <Form.Control
@@ -241,20 +289,9 @@ const handleSubmit =async(event)=>{
       value={email}
       onChange={handleemail}
       required
+      style={{fontSize: '14px',color:'#707070b5'}}
       />
     </Form.Group>
-    
-    <Form.Group className="mb-3" controlId="formBasicname">
-      <Form.Label>Phone</Form.Label>
-      <Form.Control
-      type="text"
-      placeholder="Enter your phone number"
-      value={phone}
-      onChange={handlephone}
-      required
-      />
-    </Form.Group>
-
     <Form.Group className="mb-3" controlId="formBasicname">
       <Form.Label>Add Location</Form.Label>
       <Form.Control
@@ -263,6 +300,7 @@ const handleSubmit =async(event)=>{
       value={location}
       onChange={handlelocation}
       required
+      style={{fontSize: '14px',color:'#707070b5'}}
       />
     </Form.Group>
 

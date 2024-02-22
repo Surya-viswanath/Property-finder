@@ -13,7 +13,7 @@ import { IoLogoWhatsapp } from "react-icons/io";
 function Demo() {
   const { pemail } = useParams();
   const [first, setFirst] = useState([]);
- 
+  const [second, setsecond] = useState([]);
 
   useEffect(() => {
     const handleItems = async () => {
@@ -28,10 +28,21 @@ function Demo() {
     handleItems();
   }, []);
 
+  useEffect(()=>{
+    const agent =async()=>{
+     try{
+       const responses = await axios.get('http://localhost:4008/getagent')     
+     setsecond(responses.data)
+     console.log(second);
+     }
+     catch{ 
+     }
+   }
+   agent();
+  },[]);
   const newemail = pemail;
-
-  
   const filteredData = first.filter((item) => item.email === newemail);
+  const mailid = second.filter((item)=>item.email===newemail)
 // console.log(filteredData);
 // console.log(filteredData.phone);
 
@@ -75,7 +86,14 @@ const handleWhatsAppButtonClick = () => {
  </div>
  </Link>
 <div style={{display:'flex',border:'1px solid #e4e4e4',marginRight:'40%',padding:'0.5%',backgroundColor:'#f8f8f8'}}>
-  <div>heloooo</div>
+  <div>
+  {mailid.map((helo)=>(
+<div style={{marginTop:'0px',display:'flex'}}>
+  <Link to={`/agent/${display.email}`}><img src={helo.profile} style={{width:'50px',height:'50px',borderRadius:'50%'}}></img></Link>
+<p style={{marginTop:'10%'}}>{helo.name}</p>
+  </div>
+))}
+  </div>
   <div style={{display:'flex',marginLeft:'32%'}}>
     <Button style={{backgroundColor:'white',color:'#5745A0',borderColor:'#5745A0',marginRight:'7px'}}><FaPhoneAlt /> +91{display.phone}</Button>
     <Button style={{backgroundColor:'white',color:'#5745A0',borderColor:'#5745A0',marginRight:'7px'}} ><IoMdMail /> Email</Button>

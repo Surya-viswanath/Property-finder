@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button} from 'react-bootstrap';
+import { Button, Card} from 'react-bootstrap';
 import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 import { CiLocationOn } from "react-icons/ci";
@@ -13,9 +13,8 @@ import { IoLogoWhatsapp } from "react-icons/io";
 function Homecard() {
   
   const [first, setFirst] = useState([]);
- 
-
-  useEffect(() => {
+  const [second, setsecond] = useState([]);
+   useEffect(() => {
     const handleItems = async () => {
       try {
         const response = await axios.get('http://localhost:4008/getpro');
@@ -28,12 +27,23 @@ function Homecard() {
     handleItems();
   }, []);
 
+  useEffect(()=>{
+    const agent =async()=>{
+     try{
+       const responses = await axios.get('http://localhost:4008/getagent')     
+     setsecond(responses.data)
+     console.log(second);
+     }
+     catch{ 
+     }
+   }
+   agent();
+  },[]);
+
   const filteredData = first.filter
 
   
 // Accessing specific properties of the first element
-
-
 const handleWhatsAppButtonClick = () => {
   const phoneNumber = filteredData[0].phone; // Replace with the phone number you want to chat with
   const message = 'Hello! I am interested in your product.'; // Optional: Replace with a predefined message
@@ -42,7 +52,7 @@ const handleWhatsAppButtonClick = () => {
   window.open(whatsappURL, '_blank');
 };
   return (
-    <div >
+    <div style={{backgroundColor:'F7F6FB'}}>
    <div style={{maxWidth:'1100px',margin:'0px auto'}}>
       
 {first.map((display) =>(
@@ -71,7 +81,15 @@ const handleWhatsAppButtonClick = () => {
  </div>
  </Link>
 <div style={{display:'flex',border:'1px solid #e4e4e4',marginRight:'40%',padding:'0.5%',backgroundColor:'#f8f8f8'}}>
-  <div style={{color:'black'}}>heloooo</div>
+  <div style={{color:'black'}}>
+  {second.filter(helo => helo.email === display.email)
+  .map(hai => (
+    <div style={{marginTop:'0px',display:'flex'}}>
+      <Link to={`/agent/${display.email}`}><img src={hai.profile} style={{width:'50px',height:'50px',borderRadius:'50%'}}></img></Link>
+      <p style={{marginTop:'10%'}}>{hai.name}</p>
+    </div>
+  ))}
+  </div>
   <div style={{display:'flex',marginLeft:'32%'}}>
     <Button style={{backgroundColor:'white',color:'#5745A0',borderColor:'#5745A0',marginRight:'7px'}}><FaPhoneAlt /> +91{display.phone}</Button>
     <Button style={{backgroundColor:'white',color:'#5745A0',borderColor:'#5745A0',marginRight:'7px'}} ><IoMdMail /> Email</Button>
@@ -88,6 +106,17 @@ const handleWhatsAppButtonClick = () => {
  ) )}
    </div>
    </div>       
+
+
+
+
+
+
+
+
+
+
+  
   );
 }
  

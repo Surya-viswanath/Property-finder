@@ -4,7 +4,8 @@ import { Button, Col, Container, Dropdown, Form, Modal, Nav, Navbar, Row } from 
 import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom';
 import logo from './download.png';
-
+import imgs from './signin.svg';
+import { FaRegHeart } from "react-icons/fa";
 function Menus() {
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
@@ -18,9 +19,7 @@ const [first,setfirst]= useState([]);
   const [password, setpassword] = useState('');
   
 
-  const handlename =(event)=>{
-    setname(event.target.value);
-  };
+ 
   const handleemail =(event)=>{
     setemail(event.target.value);
   };
@@ -28,7 +27,7 @@ const [first,setfirst]= useState([]);
     setpassword(event.target.value);
   };
   const handleSubmit = async (event) => {
-    const pname=name;
+   
     const pemail=email;
     event.preventDefault();
     try {
@@ -37,9 +36,9 @@ const [first,setfirst]= useState([]);
     } catch (error) {
       console.error('Axios Error:', error);
     }
-    alert(` ${name} successfully logined..!!!`)
+    
     handleClose ();
-    navigate(`/open/${pemail}/${pname}`)
+    navigate(`/open/${pemail}`)
      
   };
 
@@ -60,11 +59,11 @@ const [first,setfirst]= useState([]);
   return (
     <div>
       <Navbar collapseOnSelect expand="lg" style={{display:'flex'}}>
-        <Container className='menuu'>
+        <Container className='menuu' style={{marginLeft:'10%'}}>
         <Link to="/" style={{textDecoration:'none'}}><img src={logo} width={'120px'}></img></Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
+          <Nav className="me-auto" style={{marginLeft:'10%'}}>
           {/* {first.map(property => (
           <li>
            <Link to={`/buy/${property.sell}`}> <Nav.Link  className='meenu'>Buy</Nav.Link></Link>
@@ -81,7 +80,7 @@ const [first,setfirst]= useState([]);
             <Nav.Link href="#pricing"  className='meenu'>Find agent</Nav.Link>
            
            
-            <div class="dropdown">
+            <div class="dropdown" >
   <button class="dropbtn">Explore</button>
   <div class="dropdown-content">
     <a href="#"  className='meenu'> Explore with DataGuru  <span style={{marginLeft:'5px',padding:'0px 5px',backgroundColor:'#5745A0',color:'white',borderRadius:'5px',fontSize:'10px'}}>  NEW</span></a>
@@ -90,9 +89,9 @@ const [first,setfirst]= useState([]);
   </div>
 </div>
 
-            <Nav.Link href="#pricing"  className='meenu'>Mortgages</Nav.Link>
-            <Nav.Link href="#pricing"  className='meenu' >Explore</Nav.Link>
-            <Nav.Link href="#pricing"  className='meenu'>Mortgages</Nav.Link>
+            {/* <Nav.Link href="#pricing"  className='meenu'>Mortgages</Nav.Link> */}
+            {/* <Nav.Link href="#pricing"  className='meenu' >Explore</Nav.Link> */}
+            <Nav.Link href="#pricing"  className='meenu' ><FaRegHeart /></Nav.Link>
             
             <div class="dropdown" style={{textAlign:'center'}}>
   <button class="dropbtn"  onClick={handleShow}>Login</button>
@@ -118,26 +117,22 @@ const [first,setfirst]= useState([]);
         </Modal.Header>
         <Modal.Body>
         <Row>
-        <Col className='loginsub'>
+        {/* <Col className='loginsub'>
         <p className='view' style={{color:'black'}}>View saved properties<br></br>
 Keep search history across devices<br></br>
 See which properties you have <br></br>contacted</p>
+        </Col> */}
+
+<Col>
+<img src={imgs}/>
+        <p className='view' style={{color:'black'}}>View saved properties 
+Keep search history across devices
+See which properties you have contacted</p>
         </Col>
         <Col>
 {/*  */}
         
-<Form onSubmit={handleSubmit} style={{paddingTop:'25%'}}>
-<Form.Group className="mb-3" controlId="formBasicemail">
-      <Form.Label>Name</Form.Label>
-      <Form.Control
-      type="text"
-      placeholder="Enter your name"
-      value={name}
-      onChange={handlename}
-      required
-      
-      />
-    </Form.Group>
+<Form onSubmit={handleSubmit} style={{paddingTop:'10%'}}>
 
     <Form.Group className="mb-3" controlId="formBasicemail">
       <Form.Label>Email</Form.Label>

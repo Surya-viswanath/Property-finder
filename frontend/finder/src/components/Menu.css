@@ -61,7 +61,7 @@
        
       }
 
-      .loginsub{
+      /* .loginsub{
         background-image: url('signin.svg');
         background-repeat: no-repeat;
         background-position: center;
@@ -71,4 +71,15 @@
         margin-top: 250px;
         text-align: center;
         
-    }
+    } */
+    .loginsub{
+      background-image: url('signin.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 100%;
+  }
+  .view{
+      margin-top: 10px;
+      text-align: center;
+      
+  }

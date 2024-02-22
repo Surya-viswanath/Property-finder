@@ -15,4 +15,11 @@ const getcollection=async(req,res)=>{
     res.json(collectionList)
 }
 
+// const deletelist=async(req,res)=>{
+//     const _id=req.params.id
+//     const userdelete=await Add.findByIdAndDelete(_id)
+//     res.json(userdelete)
+
+// }
+
 module.exports = {Createlist,getcollection}

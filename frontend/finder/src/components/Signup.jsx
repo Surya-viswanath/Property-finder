@@ -53,6 +53,37 @@ const handlename =(event)=>{
   };
 
   
+  const nationalities = [
+    'American',
+    'Australian',
+    'Belgian',
+    'British',
+    'Canadian',
+    'Chinese',
+    '	Egyptian',
+    'English',
+    'French',
+    'German',
+    'Indian',
+    '	Indonesian',
+    'Iranian',
+    '	Italian',
+    '	Japanese',
+    'Malaysian',
+    'Malaysian',
+    'Mexican',
+    '	Moroccan',
+    'Nepalese',
+    'Nigerian',
+    'North korean',
+    'Omani',
+    'Pakistani',
+    'Qatari',
+    '	Russian',
+    'Saudi Arabian',
+    '	Sri Lankan',
+    // Add more nationalities as needed
+  ];
   // const handleSubmit = async (event) => {
   //   event.preventDefault();
   //   try {
@@ -72,8 +103,6 @@ const handleSubmit =async(event)=>{
     catch{
       
     }
-    alert(` ${name} successfully created..!!!`)
-    
     navigate(`/open/${pname}/${pemail}`);
   
   }
@@ -85,7 +114,9 @@ const handleSubmit =async(event)=>{
     <div className='signup'>
 
 <h2>Create your account</h2>
+
       <Form onSubmit={handleSubmit}>
+      <div style={{display:'flex'}}>
 <Form.Group className="mb-3" controlId="formBasicemail">
       <Form.Label>Name</Form.Label>
       <Form.Control
@@ -94,11 +125,10 @@ const handleSubmit =async(event)=>{
       value={name}
       onChange={handlename}
       required
-      
       />
     </Form.Group>
 
-    <Form.Group className="mb-3" controlId="formBasicemail">
+    <Form.Group className="mb-3" controlId="formBasicemail" style={{marginLeft:'10%'}}>
       <Form.Label>Email</Form.Label>
       <Form.Control
       type="text"
@@ -109,7 +139,8 @@ const handleSubmit =async(event)=>{
       
       />
     </Form.Group>
-
+    </div>
+    <div style={{display:'flex'}}>
     <Form.Group className="mb-3" controlId="formBasicname">
       <Form.Label>password</Form.Label>
       <Form.Control
@@ -122,7 +153,7 @@ const handleSubmit =async(event)=>{
       />
     </Form.Group>
 
-    <Form.Group className="mb-3" controlId="formBasicname">
+    {/* <Form.Group className="mb-3" controlId="formBasicname">
       <Form.Label>Nationality</Form.Label>
       <Form.Control
       type="text"
@@ -132,9 +163,9 @@ const handleSubmit =async(event)=>{
       required
       
       />
-    </Form.Group>
+    </Form.Group> */}
 
-    <Form.Group className="mb-3" controlId="formBasicname">
+<Form.Group className="mb-3" controlId="formBasicname" style={{marginLeft:'10%'}}>
       <Form.Label>Languages</Form.Label>
       <Form.Control
       type="text"
@@ -144,52 +175,22 @@ const handleSubmit =async(event)=>{
       required
       />
     </Form.Group>
+</div>
 
-    <Form.Group className="mb-3" controlId="formBasicname">
-      <Form.Label>Experience since</Form.Label>
-      <Form.Control
-      type="text"
-      placeholder="Enter your experience"
-      value={experience}
-      onChange={handleexperience}
-      required
-      />
+<div style={{display:'flex'}}>
+<Form.Group className="mb-3" controlId="formBasicname">
+<label htmlFor="nationality" style={{marginRight:'10px'}}>Select Nationality:</label>
+      <select id="nationality" value={nationality} onChange={handlenationality}>
+        <option value="" style={{padding:'10px'}}><span style={{color:'grey'}}>---select---</span></option>
+        {nationalities.map((nationality, index) => (
+          <option key={index} value={nationality}>
+            {nationality}
+          </option>
+        ))}
+      </select>
     </Form.Group>
 
-    <Form.Group className="mb-3" controlId="formBasicname">
-      <Form.Label>Details</Form.Label>
-      <Form.Control
-      type="text"
-      placeholder="Enter your details"
-      value={details}
-      onChange={handledetails}
-      required
-      />
-    </Form.Group>
-
-    <Form.Group className="mb-3" controlId="formBasicname">
-      <Form.Label>Phone</Form.Label>
-      <Form.Control
-      type="text"
-      placeholder="Enter your phone number"
-      value={phone}
-      onChange={handlephone}
-      required
-      />
-    </Form.Group>
-
-    {/* <Form.Group className="mb-3" controlId="formBasicname">
-      <Form.Label>profile</Form.Label>
-      <Form.Control
-      type="text"
-      placeholder="Enter your phone number"
-      value={profile}
-      onChange={handleprofile}
-      required
-      />
-    </Form.Group> */}
-    
-    <div className="mb-3 w-96">
+ <div className="mb-3 w-96" style={{marginLeft:'15%'}}>
           <label
             htmlFor="formFile"
             className="mb-2 inline-block text-neutral-700 dark:text-neutral-200"
@@ -204,22 +205,54 @@ const handleSubmit =async(event)=>{
            onChange={handleprofile}
           />
       </div>
-    {/* <Button 
-    type="submit"
-    
-className='signbut'
-    >
-    Submit
-    </Button> */}
+      </div>
 
-    <Button 
+    <div style={{display:'flex'}}>
+
+    <Form.Group className="mb-3" controlId="formBasicname">
+      <Form.Label>Experience since</Form.Label>
+      <Form.Control
+      type="text"
+      placeholder="Enter your experience"
+      value={experience}
+      onChange={handleexperience}
+      required
+      />
+    </Form.Group>
+
+    <Form.Group className="mb-3" controlId="formBasicname" style={{marginLeft:'10%'}}>
+      <Form.Label>Phone</Form.Label>
+      <Form.Control
+      type="text"
+      placeholder="Enter your phone number"
+      value={phone}
+      onChange={handlephone}
+      required
+      />
+    </Form.Group>
+    </div>
+    
+    <Form.Group className="mb-3" controlId="formBasicname">
+      <Form.Label>Details</Form.Label>
+      <Form.Control
+      type="text"
+      placeholder="Enter your details"
+      value={details}
+      onChange={handledetails}
+      required
+      />
+    </Form.Group>
+
+    <button 
     type="submit"
    
 className='signbut'
     >
     Signup
-    </Button>
+    </button>
+ 
   </Form>
+ 
     </div>
   )
 }

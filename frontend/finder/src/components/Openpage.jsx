@@ -4,12 +4,12 @@ import { Link, useParams } from 'react-router-dom'
 import './Openpage.css'
 
 function Openpage(){
-    const { pname, pemail } = useParams();
-    const name =pname;
+    const {  pemail } = useParams();
+    
     // console.log(name)
   return (
     <div className='openbanner'>
-        <h3>hey {name}</h3>
+       
       <Button className='openbut'><Link to="/adding"  className='openli'>Add your Property..</Link></Button>
     </div>
   )

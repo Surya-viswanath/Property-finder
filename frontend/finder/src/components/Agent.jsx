@@ -82,28 +82,48 @@ const mailid = second.filter((item)=>item.email===getmail)
             <div>
 <div style={{backgroundColor:'#5745A0',height:'200px',width:'100%'}}>
 </div>
-<div style={{display:'flex'}}>
+{/* <div style={{display:'flex',marginTop:'-10%'}}>
     <div style={{display:'flex'}}>
-<div style={{marginLeft:'15%',marginTop:'-24%'}}>
+<div style={{marginLeft:'15%'}}>
   <img src={helo.profile} style={{width:'100%',height:'100%',borderRadius:'2%',float:'bottom'}}></img>
 </div>
-<div style={{marginLeft:'15%',marginTop:'-24%'}}>
+<div style={{marginLeft:'15%'}}>
 <h2 style={{color:'white',marginLeft:'5%'}}>{helo.name}</h2>
 <h5 style={{color:'white'}}>Property Consultant</h5>
     </div>
 </div>
 
-<div  style={{marginTop:'-8%',backgroundColor:'white',padding:'1%',marginLeft:'25%',border:'1px solid #b0b0b0'}}>
+<div  style={{backgroundColor:'white',padding:'1%',float:'right',border:'1px solid #b0b0b0'}}>
     <h5>Contact this agent</h5>
-    <div style={{display:'flex',marginTop:'5%'}}>
+    <div style={{display:'flex'}}>
 <Button style={{backgroundColor:'#EF5E4E',color:'white',border:'none',marginRight:'7px',height:'60px'}}><FaPhoneAlt /> +91{helo.phone}</Button>
 <Button style={{backgroundColor:'#EF5E4E',color:'white',border:'none',marginRight:'7px',height:'60px'}} ><IoMdMail /> Email</Button>
 <Button style={{backgroundColor:'#25D366',color:'white',border:'none',marginRight:'7px',height:'60px'}} onClick={handleWhatsAppButtonClick}><IoLogoWhatsapp /> Whatsapp</Button>
 </div>
+
 <h6 style={{marginTop:'15px'}}><span style={{color:'#5745A0'}}><MdStars /></span>{helo.name} usually responds within 5 minutes</h6>
     </div>
-</div>
-<div style={{marginTop:'2%',marginLeft:'5%'}}>
+</div> */}
+<Row style={{marginLeft:'5%',marginTop:'-10%'}}>
+<Col sm={6} style={{display:'flex'}}>
+  <Col >
+  <img src={helo.profile} style={{width:'100%',height:'50%',borderRadius:'2%',float:'bottom'}}></img>
+  </Col>
+  <Col style={{marginLeft:'5%'}}>
+  <h2 style={{color:'white',marginLeft:'5%'}}>{helo.name}</h2>
+<h5 style={{color:'white'}}>Property Consultant</h5>
+  </Col>
+  </Col>
+  <Col sm={6} >
+  <h5 style={{color:'white'}}>Contact this agent</h5>
+  <Col>
+  <Button style={{backgroundColor:'#EF5E4E',color:'white',border:'none',marginRight:'7px',height:'60px'}}><FaPhoneAlt /> +91{helo.phone}</Button>
+<Button style={{backgroundColor:'#EF5E4E',color:'white',border:'none',marginRight:'7px',height:'60px'}} ><IoMdMail /> Email</Button>
+<Button style={{backgroundColor:'#25D366',color:'white',border:'none',marginRight:'7px',height:'60px'}} onClick={handleWhatsAppButtonClick}><IoLogoWhatsapp /> Whatsapp</Button>
+  </Col>
+  </Col>
+</Row>
+<div style={{marginTop:'-10%',marginLeft:'5%'}}>
 <h4>Personal Information</h4>
 
     <div>

@@ -1,23 +1,32 @@
 .signup{
     align-items: center;
-    background-color: rgba(96, 125, 186, 0.998);
-    margin:2% 20%;
+    /* background-color: rgba(96, 125, 186, 0.998); */
+    background-color: #f7f6fb;
+    margin:2% 25%;
     padding: 2% 5%;
-    color: white;
+    /* color: white; */
+    color:black;
 }
 .signbut{
     border: none;
-    background-color: rgba(3, 49, 148, 0.84);
+    /* background-color: rgba(3, 49, 148, 0.84); */
+    background-color: rgb(239, 94, 78);
+    text-decoration: none;
+    color: white;
+    border-radius: 5%;
+    padding: 2% 5%;
 }
 .signbut:hover{
-    background-color: rgba(3, 49, 148, 0.84);
+  
+    background-color: rgb(239, 94, 78);
 }
 
 .add{
     align-items: center;
-    background-color: rgba(96, 125, 186, 0.998);
-    margin:2% 20%;
+    background-color: #f7f6fb;
+    /* background-color: #f7f6fb; */
+    margin:2% 5%;
     padding: 2% 5%;
-    color: white;
+    color: black;
     padding-bottom: 5%;
 }
