@@ -18,7 +18,7 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
 import { IoLogoWhatsapp } from "react-icons/io";
 
-function Detail() {
+function Detail({ properties, addToWishlist }) {
 
   const {_id,email}=useParams();
   const [first, setfirst] = useState([])
@@ -94,8 +94,14 @@ const mailid = second.filter((item)=>item.email===getmail)
     </Container>
     <Container style={{display:'flex'}}>
     <Row >
+     <div >
     <h6>{demo.address}</h6>
-      <h5 style={{marginTop:'1.5%'}}>{demo.description}</h5>
+     {/* <button onClick={() => addToWishlist(property._id)} style={{float:'right'}}>Add</button> */}
+     {/* <button style={{float:'right'}}>Add</button><br></br> */}
+     </div>
+      {/* <h5 style={{marginTop:'-3%'}}>{demo.description}</h5> */}
+      <h5 style={{marginTop:'0%'}}>{demo.description}</h5>
+     
     <Col style={{paddingRight:'-20%'}}>
       <div style={{marginTop:'1.5%'}}>
      <h6 style={{marginRight:'2%'}}><FaIndianRupeeSign /> Property Price:  {demo.regularPrice}</h6>
@@ -111,6 +117,7 @@ const mailid = second.filter((item)=>item.email===getmail)
    </div>
       </Col>
       <Col style={{marginLeft:'30%',marginRight:'-30%'}}>
+       
       <h6 style={{marginRight:'2%'}}> Offer : {demo.offer}</h6>
      <h6> <TbArrowAutofitWidth /> Property size: {demo.propertysize} </h6>
      <h6> <PiBathtub /> Bathrooms: {demo.bathrooms}</h6>
@@ -130,7 +137,7 @@ const mailid = second.filter((item)=>item.email===getmail)
 {mailid.map((helo)=>(
 <div style={{marginTop:'-15%',display:'flex'}}>
   <Link to={`/agent/${demo.email}`}><img src={helo.profile} style={{width:'50px',height:'50px',borderRadius:'50%'}}></img></Link>
-<p style={{marginTop:'1%'}}> {helo.name} usually responds within 5 minutes</p>
+<p style={{marginTop:'3%'}}> {helo.name} usually responds within 5 minutes</p>
   </div>
 ))}
 

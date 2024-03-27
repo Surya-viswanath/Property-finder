@@ -3,7 +3,7 @@ import './Menu.css'
 import { Button, Col, Container, Dropdown, Form, Modal, Nav, Navbar, Row } from 'react-bootstrap'
 import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom';
-import logo from './download.png';
+import logo from './logodream.avif';
 import imgs from './signin.svg';
 import { FaRegHeart } from "react-icons/fa";
 function Menus() {
@@ -33,6 +33,9 @@ const [first,setfirst]= useState([]);
     try {
       const display = await axios.post('http://localhost:4008//login', { email, password });
       console.log(display.data);
+      const userData = display.data;
+      // Store user data in local storage or state
+      localStorage.setItem('user', JSON.stringify(userData));
     } catch (error) {
       console.error('Axios Error:', error);
     }
@@ -59,46 +62,38 @@ const [first,setfirst]= useState([]);
   return (
     <div>
       <Navbar collapseOnSelect expand="lg" style={{display:'flex'}}>
-        <Container className='menuu' style={{marginLeft:'10%'}}>
-        <Link to="/" style={{textDecoration:'none'}}><img src={logo} width={'120px'}></img></Link>
+        <Container  style={{marginLeft:'10%'}}>
+        {/* <Link to="/" style={{textDecoration:'none'}}><img src={logo} width={'150px'} height={'100px'}></img></Link> */}
+        <Link to="/" style={{textDecoration:'none'}}><p className='logo'>D<span style={{fontSize:'20px'}}>ream</span>H<span style={{fontSize:'20px'}}>ome</span></p></Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto" style={{marginLeft:'10%'}}>
-          {/* {first.map(property => (
-          <li>
-           <Link to={`/buy/${property.sell}`}> <Nav.Link  className='meenu'>Buy</Nav.Link></Link>
-            {/* <Nav.Link href="#features"  className='meenu'>Rent</Nav.Link>
-            <Nav.Link href="#pricing"  className='meenu'>Commercial</Nav.Link>
-            <Nav.Link href="#pricing"  className='meenu'>New projects</Nav.Link> */}
-           
-          {/* </li> */}
-        {/* ))} */}
+         
             <Nav.Link href={`/buy/Buy`} className='meenu'>Buy</Nav.Link>
             <Nav.Link href={`/rent/Rent`}  className='meenu'>Rent</Nav.Link>
             <Nav.Link href={`/commercial/commercial`}  className='meenu'>Commercial</Nav.Link>
-            <Nav.Link href="#pricing"  className='meenu'>New projects</Nav.Link>
-            <Nav.Link href="#pricing"  className='meenu'>Find agent</Nav.Link>
+            {/* <Nav.Link href="#pricing"  className='meenu'>New projects</Nav.Link> */}
+            <Nav.Link href={`/findagent`}  className='meenu'>Find agent</Nav.Link>
            
            
-            <div class="dropdown" >
+            {/* <div class="dropdown" >
   <button class="dropbtn">Explore</button>
   <div class="dropdown-content">
     <a href="#"  className='meenu'> Explore with DataGuru  <span style={{marginLeft:'5px',padding:'0px 5px',backgroundColor:'#5745A0',color:'white',borderRadius:'5px',fontSize:'10px'}}>  NEW</span></a>
     <a href="#"  className='meenu'>Property Blog</a>
     <a href="#"  className='meenu'>Mo'asher: Dubai Price Index</a>
   </div>
-</div>
+</div> */}
 
-            {/* <Nav.Link href="#pricing"  className='meenu'>Mortgages</Nav.Link> */}
-            {/* <Nav.Link href="#pricing"  className='meenu' >Explore</Nav.Link> */}
-            <Nav.Link href="#pricing"  className='meenu' ><FaRegHeart /></Nav.Link>
+            
+            {/* <Nav.Link href="#pricing"  className='meenu' ><FaRegHeart /></Nav.Link> */}
             
             <div class="dropdown" style={{textAlign:'center'}}>
   <button class="dropbtn"  onClick={handleShow}>Login</button>
   <div class="dropdown-content">
     <p style={{textAlign:'center',paddingTop:'10%'}}>Sign in or register to sync your favorite properties across devices</p>
-    <button className="sign" style={{color:'white'}}>Sign in</button>
-    <a href="#"  className='meenu'>Create new account</a>
+    <button className="sign" style={{color:'white'}} onClick={handleShow}>Sign in</button>
+    <Link to='/sign' style={{textDecoration:'none'}} className='meenu'>Create new account</Link>
     <a href="#"  className='meenu'>Saved properties</a>
   </div>
 </div>
@@ -117,12 +112,6 @@ const [first,setfirst]= useState([]);
         </Modal.Header>
         <Modal.Body>
         <Row>
-        {/* <Col className='loginsub'>
-        <p className='view' style={{color:'black'}}>View saved properties<br></br>
-Keep search history across devices<br></br>
-See which properties you have <br></br>contacted</p>
-        </Col> */}
-
 <Col>
 <img src={imgs}/>
         <p className='view' style={{color:'black'}}>View saved properties 
@@ -130,7 +119,7 @@ Keep search history across devices
 See which properties you have contacted</p>
         </Col>
         <Col>
-{/*  */}
+
         
 <Form onSubmit={handleSubmit} style={{paddingTop:'10%'}}>
 
@@ -142,19 +131,19 @@ See which properties you have contacted</p>
       value={email}
       onChange={handleemail}
       required
-      
+      style={{fontSize: '14px',color:'#707070b5'}}
       />
     </Form.Group>
 
     <Form.Group className="mb-3" controlId="formBasicname">
-      <Form.Label>password</Form.Label>
+      <Form.Label>Password</Form.Label>
       <Form.Control
       type="text"
       placeholder="Enter password"
       value={password}
       onChange={handlepassword}
       required
-      
+      style={{fontSize: '14px',color:'#707070b5'}}
       />
     </Form.Group>
    

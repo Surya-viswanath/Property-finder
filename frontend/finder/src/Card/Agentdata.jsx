@@ -22,10 +22,10 @@ import { MdStars } from "react-icons/md";
 
 import { GiResize } from "react-icons/gi";
 
-function Agentopen() {
+function Agentdata() {
 
     const navigate= useNavigate();
-  const {pemail}=useParams();
+  const {email}=useParams();
   const [first, setfirst] = useState([])
   const [second, setsecond] = useState([])
   const [show, setShow] = useState(false);
@@ -64,7 +64,7 @@ function Agentopen() {
    agent();
   },[]);
 
-  const getmail=pemail;
+  const getmail=email;
  const property = first.filter((item)=>item.email===getmail)
 //  console.log(property);
 
@@ -103,10 +103,10 @@ const mailid = second.filter((item)=>item.email===getmail)
         Languages : <span style={{color:'black'}}>   {helo.languages}</span> <br></br>
         Experience Since : <span style={{color:'black'}}>  {helo.experience}</span><br></br>
         </p>
-       <Link to={`/getone/${helo.email}`}> <button style={{backgroundColor:'white',color:'#EF5E4E',border:'1px solid #EF5E4E',borderRadius:'50%',marginRight:'7px',marginTop:'5px',height:'40px',width:'110px'}}>Properties</button></Link>
+        <Link to={`/getone/${helo.email}`}> <button style={{backgroundColor:'white',color:'#EF5E4E',border:'1px solid #EF5E4E',borderRadius:'50%',marginRight:'7px',marginTop:'5px',height:'40px',width:'110px'}}>Properties</button></Link>
         <button style={{backgroundColor:'white',color:'#EF5E4E',border:'1px solid #EF5E4E',borderRadius:'50%',marginRight:'7px',marginTop:'5px',height:'40px',width:'80px'}} onClick={handleShow}>Contact</button>
-       <button style={{backgroundColor:'white',color:'#EF5E4E',border:'1px solid #EF5E4E',borderRadius:'50%',marginRight:'7px',marginTop:'5px',height:'40px',width:'110px'}}  onClick={handleAbout}>About me </button>
-        <Link to="/adding" style={{textDecoration:'none'}}><button style={{backgroundColor:'white',color:'#EF5E4E',border:'1px solid #EF5E4E',borderRadius:'50%',marginRight:'7px',marginTop:'5px',height:'40px',width:'155px'}}>Add new Property</button></Link>
+        <button style={{backgroundColor:'white',color:'#EF5E4E',border:'1px solid #EF5E4E',borderRadius:'50%',marginRight:'7px',marginTop:'5px',height:'40px',width:'110px'}}  onClick={handleAbout}>About me </button>
+
         </Col>
       </Row>
       
@@ -166,4 +166,4 @@ const mailid = second.filter((item)=>item.email===getmail)
   )
 }
 
-export default Agentopen
+export default Agentdata

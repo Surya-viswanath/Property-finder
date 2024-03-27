@@ -1,6 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Protest+Revolution&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Honk&family=Protest+Revolution&family=Rubik+Glitch+Pop&display=swap');
 
-
-
+/* .logo{
+  font-family: "Protest Revolution", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color:orange;
+} */
+.logo{
+  font-family: "Great Vibes", cursive;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 26px;
+  color: #EF5E4E;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  padding-top: 15%;
+}
+.logo :hover{
+  color: #EF5E4E;
+}
 .dropbtn {
       
         /* color:black; */

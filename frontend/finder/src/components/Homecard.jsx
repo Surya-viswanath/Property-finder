@@ -10,6 +10,7 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
 import { IoLogoWhatsapp } from "react-icons/io";
 
+
 function Homecard() {
   
   const [first, setFirst] = useState([]);
@@ -65,7 +66,7 @@ const handleWhatsAppButtonClick = () => {
 <img src={display.image} alt={display._id} style={{width:'320px',height:'280px',color:'black'}}
 />
   </div>
-  <div style={{marginLeft:'2%',marginTop:'3%'}}>
+  <div style={{marginLeft:'2%',marginTop:'3%'}} className='cardd'>
 <p  style={{color:'#707070'}}>{display.type}</p>
 <p style={{color:'black'}}>{display.sell}</p>
 <h5 style={{color:'black'}}>{display.regularPrice}</h5>

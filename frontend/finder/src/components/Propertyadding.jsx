@@ -104,6 +104,8 @@ const handleSubmit =async(event)=>{
       <h2>Add your property..</h2>
       
       <Form  onSubmit={handleSubmit}>
+        <div style={{display:'flex'}}>
+          <div style={{width:'50%'}}>
     <Form.Group className="mb-3" controlId="formBasicemail">
       <Form.Label>Description</Form.Label>
       <Form.Control
@@ -129,17 +131,8 @@ const handleSubmit =async(event)=>{
       style={{fontSize: '14px',color:'#707070b5'}}
       />
     </Form.Group>
-    {/* <Form.Group className="mb-3" controlId="formBasicname">
-      <Form.Label>Buy,Ret or Commercial</Form.Label>
-      <Form.Control
-      type="text"
-      placeholder="Type here"
-      value={sell}
-      onChange={handlesell}
-      required
-      
-      />
-    </Form.Group> */}
+    
+    
     <Form.Group className='mb-3' controlId='formBasicname'>
     <label htmlFor="nationality" style={{marginRight:'10px'}}>Type:</label>
       <select id="nationality" value={sell} onChange={handlesell}>
@@ -152,7 +145,7 @@ const handleSubmit =async(event)=>{
       </select>
      
     </Form.Group>
-<div style={{display:'flex'}}>
+
     <Form.Group className="mb-3" controlId="formBasicname" style={{marginRight:'10px'}}>
       <Form.Label>RegularPrice</Form.Label>
       <Form.Control
@@ -188,8 +181,7 @@ const handleSubmit =async(event)=>{
       style={{fontSize: '14px',color:'#707070b5'}}
       />
     </Form.Group>
-    </div>
-    <div style={{display:'flex'}}>
+   
     <Form.Group className="mb-3" controlId="formBasicname" style={{marginRight:'10px'}}>
       <Form.Label>No: of bathrooms</Form.Label>
       <Form.Control
@@ -213,7 +205,8 @@ const handleSubmit =async(event)=>{
       style={{fontSize: '14px',color:'#707070b5'}}
       />
     </Form.Group>
-
+</div>
+<div style={{width:'50%',marginLeft:'5%'}}>
     <Form.Group className="mb-3" controlId="formBasicname">
       <Form.Label>Furnished or not</Form.Label>
       <Form.Control
@@ -225,8 +218,7 @@ const handleSubmit =async(event)=>{
       style={{fontSize: '14px',color:'#707070b5'}}
       />
     </Form.Group>
-    </div>
-    <div style={{display:'flex'}}>
+  
     <Form.Group className="mb-3" controlId="formBasicname" style={{marginRight:'10px'}}>
       <Form.Label>parking</Form.Label>
       <Form.Control
@@ -280,7 +272,7 @@ const handleSubmit =async(event)=>{
       style={{fontSize: '14px',color:'#707070b5'}}
       />
     </Form.Group>
-    </div>
+  
     <Form.Group className="mb-3" controlId="formBasicname">
       <Form.Label>email</Form.Label>
       <Form.Control
@@ -304,9 +296,20 @@ const handleSubmit =async(event)=>{
       />
     </Form.Group>
 
+    <Form.Group className="mb-3" controlId="formBasicname">
+      <Form.Label>Add photo</Form.Label>
+      <Form.Control
+      type="text"
+      placeholder="Add photo"
+      value={image}
+      onChange={handleimage}
+      required
+      style={{fontSize: '14px',color:'#707070b5'}}
+      />
+    </Form.Group>
     
     
-    <div className="mb-3 w-96">
+    {/* <div className="mb-3 w-96">
           <label
             htmlFor="formFile"
             className="mb-2 inline-block text-neutral-700 dark:text-neutral-200"
@@ -321,15 +324,18 @@ const handleSubmit =async(event)=>{
 
            id="formFile"
           />
-      </div>
-    <Button 
+      </div> */}
+      <button 
     type="submit"
-    // onClick={handleSubmit}
-    style={{float: 'right'}}
-    className='signbut'
+   
+className='signbut'
+style={{float:'right'}}
     >
     Add
-    </Button>
+    </button>
+    
+    </div>
+    </div>
   </Form>
 
     </div>

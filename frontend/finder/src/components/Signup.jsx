@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Button, Form } from 'react-bootstrap';
 import './Signup.css'
 import { useNavigate } from 'react-router-dom';
-// import listingItem from '../../../../backend/Controller/Listingschema';
+
 
 
 function Signup() {
@@ -20,6 +20,8 @@ const [experience, setexperience] = useState('');
 const [details, setdetails] = useState('');
 const [phone, setphone] = useState('');
 const [profile, setprofile] = useState([]);
+// const [nationalities, setNationalities] = useState([]);
+const [loading, setLoading] = useState(true);
 
 const handlename =(event)=>{
     setname(event.target.value);
@@ -111,13 +113,15 @@ const handleSubmit =async(event)=>{
 
    
   return (
-    <div className='signup'>
-
+    
+<div className='signup'>
 <h2>Create your account</h2>
 
       <Form onSubmit={handleSubmit}>
       <div style={{display:'flex'}}>
-<Form.Group className="mb-3" controlId="formBasicemail">
+        <div style={{width:'50%'}}>
+        <div style={{display:'flex'}}>
+<Form.Group className="mb-3" controlId="formBasicemail" style={{width:'50%'}}>
       <Form.Label>Name</Form.Label>
       <Form.Control
       type="text"
@@ -125,10 +129,11 @@ const handleSubmit =async(event)=>{
       value={name}
       onChange={handlename}
       required
+      style={{fontSize: '14px',color:'#707070b5'}}
       />
     </Form.Group>
 
-    <Form.Group className="mb-3" controlId="formBasicemail" style={{marginLeft:'10%'}}>
+    <Form.Group className="mb-3" controlId="formBasicemail" style={{width:'50%',marginLeft:'2%'}}>
       <Form.Label>Email</Form.Label>
       <Form.Control
       type="text"
@@ -136,12 +141,12 @@ const handleSubmit =async(event)=>{
       value={email}
       onChange={handleemail}
       required
-      
+      style={{fontSize: '14px',color:'#707070b5'}}
       />
     </Form.Group>
-    </div>
-    <div style={{display:'flex'}}>
-    <Form.Group className="mb-3" controlId="formBasicname">
+   </div>
+   <div style={{display:'flex'}}>
+    <Form.Group className="mb-3" controlId="formBasicname" style={{width:'50%'}}>
       <Form.Label>password</Form.Label>
       <Form.Control
       type="text"
@@ -149,23 +154,13 @@ const handleSubmit =async(event)=>{
       value={password}
       onChange={handlepassword}
       required
-      
+      style={{fontSize: '14px',color:'#707070b5'}}
       />
     </Form.Group>
 
-    {/* <Form.Group className="mb-3" controlId="formBasicname">
-      <Form.Label>Nationality</Form.Label>
-      <Form.Control
-      type="text"
-      placeholder="Enter your nation"
-      value={nationality}
-      onChange={handlenationality}
-      required
-      
-      />
-    </Form.Group> */}
+  
 
-<Form.Group className="mb-3" controlId="formBasicname" style={{marginLeft:'10%'}}>
+<Form.Group className="mb-3" controlId="formBasicname" style={{width:'50%',marginLeft:'2%'}}>
       <Form.Label>Languages</Form.Label>
       <Form.Control
       type="text"
@@ -173,24 +168,25 @@ const handleSubmit =async(event)=>{
       value={languages}
       onChange={handlelanguages}
       required
+      style={{fontSize: '14px',color:'#707070b5'}}
       />
     </Form.Group>
 </div>
-
-<div style={{display:'flex'}}>
 <Form.Group className="mb-3" controlId="formBasicname">
-<label htmlFor="nationality" style={{marginRight:'10px'}}>Select Nationality:</label>
-      <select id="nationality" value={nationality} onChange={handlenationality}>
-        <option value="" style={{padding:'10px'}}><span style={{color:'grey'}}>---select---</span></option>
-        {nationalities.map((nationality, index) => (
-          <option key={index} value={nationality}>
-            {nationality}
-          </option>
-        ))}
-      </select>
+      <Form.Label>Details</Form.Label>
+      <Form.Control
+      type="text"
+      placeholder="Enter your details"
+      value={details}
+      onChange={handledetails}
+      required
+      style={{fontSize: '14px',color:'#707070b5',paddingBottom: '70px'}}
+      />
     </Form.Group>
 
- <div className="mb-3 w-96" style={{marginLeft:'15%'}}>
+    </div>
+    <div style={{width:'50%',marginLeft:'2%'}}>
+ {/* <div className="mb-3 w-96" >
           <label
             htmlFor="formFile"
             className="mb-2 inline-block text-neutral-700 dark:text-neutral-200"
@@ -203,13 +199,23 @@ const handleSubmit =async(event)=>{
             value={profile}
            id="formFile"
            onChange={handleprofile}
+          
           />
-      </div>
-      </div>
-
-    <div style={{display:'flex'}}>
-
+      </div> */}
+    
     <Form.Group className="mb-3" controlId="formBasicname">
+      <Form.Label>Add profile photo</Form.Label>
+      <Form.Control
+      type="text"
+      placeholder="Add image"
+      value={profile}
+      onChange={handleprofile}
+      required
+      style={{fontSize: '14px',color:'#707070b5'}}
+      />
+    </Form.Group>
+    <div style={{display:'flex'}}>
+    <Form.Group className="mb-3" controlId="formBasicname" style={{width:'50%'}}>
       <Form.Label>Experience since</Form.Label>
       <Form.Control
       type="text"
@@ -217,10 +223,11 @@ const handleSubmit =async(event)=>{
       value={experience}
       onChange={handleexperience}
       required
+      style={{fontSize: '14px',color:'#707070b5'}}
       />
     </Form.Group>
 
-    <Form.Group className="mb-3" controlId="formBasicname" style={{marginLeft:'10%'}}>
+    <Form.Group className="mb-3" controlId="formBasicname" style={{width:'50%',marginLeft:'2%'}}>
       <Form.Label>Phone</Form.Label>
       <Form.Control
       type="text"
@@ -228,32 +235,48 @@ const handleSubmit =async(event)=>{
       value={phone}
       onChange={handlephone}
       required
+      style={{fontSize: '14px',color:'#707070b5'}}
       />
     </Form.Group>
     </div>
-    
     <Form.Group className="mb-3" controlId="formBasicname">
-      <Form.Label>Details</Form.Label>
-      <Form.Control
-      type="text"
-      placeholder="Enter your details"
-      value={details}
-      onChange={handledetails}
-      required
-      />
-    </Form.Group>
+<label  style={{marginRight:'10px'}}>Select Nationality:</label><br></br>
+      {/* <select  value={nationality} onChange={handlenationality}>
+        <option value="" style={{padding:'10px'}}><span style={{color:'grey'}}>---select---</span></option>
+        {nationalities.map((nationality, index) => (
+          <option key={index} value={nationality}>
+            {nationality}
+          </option>
+        ))}
+      </select> */}
 
+<select
+            value={nationality}
+            onChange={(e) => setnationality(e.target.value)}
+            required
+            style={{padding:'7px',marginTop:'8px',borderRadius:'5px',fontSize: '14px',color:'#707070b5'}}  >
+            <option value="" >Select Nationality</option>
+            {nationalities.map((n,index) => (
+              <option key={index} value={n}>
+                {n}
+              </option>
+            ))}
+            
+          </select>
+    </Form.Group>
+    
     <button 
     type="submit"
    
 className='signbut'
     >
-    Signup
+    Create
     </button>
- 
+ </div>
+ </div>
   </Form>
- 
-    </div>
+  </div>
+    
   )
 }
 
