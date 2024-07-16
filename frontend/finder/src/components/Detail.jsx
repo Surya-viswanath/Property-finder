@@ -17,13 +17,15 @@ import { BiSolidOffer } from "react-icons/bi";
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
 import { IoLogoWhatsapp } from "react-icons/io";
+import { CiHeart } from "react-icons/ci";
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
+function Detail({ properties}) {
 
-function Detail({ properties, addToWishlist }) {
-
-  const {_id,email}=useParams();
+  const {_id,ids,email}=useParams();
   const [first, setfirst] = useState([])
   const [second, setsecond] = useState([])
-
+ const userid=ids;
   useEffect(()=>{
     const handleitems =async()=>{
      try{
@@ -55,6 +57,8 @@ function Detail({ properties, addToWishlist }) {
  const property = first.filter((item)=>item._id===getid)
 //  console.log(property);
 
+
+
 const getmail=email;
 const mailid = second.filter((item)=>item.email===getmail)
 
@@ -69,6 +73,16 @@ const mailid = second.filter((item)=>item.email===getmail)
   window.open(whatsappURL, '_blank');
 };
 
+const addToWishlist = async (propertyId, userId) => {
+  try {
+    const response = await axios.post('http://localhost:4008/addToWishlist', { propertyId, userId });
+    console.log(response.data); // Assuming the response contains some confirmation message
+    // You can also show a toast or notification to inform the user that the property has been added to the wishlist
+  } catch (error) {
+    console.error('Error adding property to wishlist:', error);
+    // Handle error (show error message to user, etc.)
+  }
+};
   return (
     <div >
       {property.map((demo)=>
@@ -95,17 +109,14 @@ const mailid = second.filter((item)=>item.email===getmail)
     <Container style={{display:'flex'}}>
     <Row >
      <div >
-    <h6>{demo.address}</h6>
-     {/* <button onClick={() => addToWishlist(property._id)} style={{float:'right'}}>Add</button> */}
-     {/* <button style={{float:'right'}}>Add</button><br></br> */}
+    <h6 style={{display:'flex'}}>{demo.address}
+{/* <p style={{ color: 'red', marginLeft: '20%', fontSize: '18px' }} onClick={addToWishlist}><CiHeart /></p>   */}
+  </h6>
      </div>
-      {/* <h5 style={{marginTop:'-3%'}}>{demo.description}</h5> */}
       <h5 style={{marginTop:'0%'}}>{demo.description}</h5>
-     
     <Col style={{paddingRight:'-20%'}}>
       <div style={{marginTop:'1.5%'}}>
      <h6 style={{marginRight:'2%'}}><FaIndianRupeeSign /> Property Price:  {demo.regularPrice}</h6>
-     
      <h6 style={{marginRight:'2%'}}><BiSolidOffer /> Offer price : {demo.discountPrice}</h6>
      </div>
       <div>
@@ -141,6 +152,8 @@ const mailid = second.filter((item)=>item.email===getmail)
   </div>
 ))}
 
+{/* import { CiLocationOn, CiHeart } from "react-icons/ci";
+<Link to={`/Wishlist/${userid}/${data._id}`} style={{textDecoration:'none'}}><p style={{ color: 'red', marginLeft: '20%', fontSize: '18px' }}><CiHeart /></p></Link> */}
 
 
 

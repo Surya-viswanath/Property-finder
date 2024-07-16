@@ -87,13 +87,13 @@ function Findagent() {
 
 
 <div style={{marginTop:'2%',marginLeft:'2%',marginRight:'2%'}}> 
-      <h2>Explore properties</h2>
+      <h2>Find Agents</h2>
     <div className="gallery" >
     
        {second.map(data => (
-        <div >
+        <div style={{}}>
          {/* <Link to={`/detail/${data._id}/${data.email}`} style={{textDecoration:'none'}}> */}
-        <div key={data.id}  style={{display:'flex',border:'1px solid #ccc',padding:'10px',textAlign:'left',borderRadius:'6%'}}>
+        <div key={data.id}  style={{display:'flex',border:'1px solid #ccc',padding:'10px',textAlign:'left',borderRadius:'6%',height:'300px'}}>
          <div>
           <img src={data.profile} alt={data.title} style={{maxWidth:'100%',height:'200px'}}/>
 
@@ -106,7 +106,9 @@ Nationality :<span style={{color:'black'}}>{data.nationality} </span> <br></br>
 Languages : <span style={{color:'black'}}>{data.languages}</span>
 </p>
 
-<Link to={`/getone/${data.email}`}> <button style={{backgroundColor:'white',color:'#EF5E4E',border:'1px solid #EF5E4E',borderRadius:'50%',marginRight:'7px',height:'40px',width:'110px'}}>Properties</button></Link>
+<Link to={`/getone/${data.email}`}> <button style={{backgroundColor:'white',color:'#EF5E4E',border:'1px solid #EF5E4E',borderRadius:'50%',marginRight:'7px',height:'40px',width:'110px'
+  
+}}>Properties</button></Link>
 </div>
         </div>
         {/* </Link> */}

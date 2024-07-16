@@ -49,7 +49,7 @@ const filteredData = first.filter((item) => item.sell === sells);
        <Link to={`/detail/${data._id}/${data.email}`} style={{textDecoration:'none'}}>
       <div key={data.id} className="image-item">
        
-        <img src={data.image} alt={data.title} />
+        <img src={data.image} alt={data.title}/>
         <p>{data.title}</p>
         <p  style={{color:'#707070'}}>{data.type} , {data.sell}</p>
 <p style={{color:'black'}}>

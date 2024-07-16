@@ -1,5 +1,6 @@
 
 import './App.css';
+import { AuthProvider } from './auth/AuthContext';
 import Router from './Router';
 
 
@@ -8,9 +9,9 @@ import Router from './Router';
 function App() {
   return (
     <div className="App">
-    
+      <AuthProvider>
   <Router/>
- 
+  </AuthProvider>
     </div>
   );
 }

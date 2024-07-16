@@ -1,71 +1,11 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-
+import { Link } from 'react-router-dom';
+import '../Card/Home.css'
+import { CiLocationOn } from "react-icons/ci";
+import { CiHeart } from "react-icons/ci";
+import { IoSearch } from "react-icons/io5";
 function Search() {
-//     const [properties, setProperties] = useState([]);
-//   const [searchTerm, setSearchTerm] = useState('');
-
-//   useEffect(() => {
-//     const fetchData = async () => {
-//       try {
-//         const response = await axios.get('http://localhost:4008/getpro');
-//         setProperties(response.data);
-//       } catch (error) {
-//         console.error('Error fetching data:', error);
-//       }
-//     };
-
-//     fetchData();
-//   }, []);
-
-//   const handleSearch = (event) => {
-//     setSearchTerm(event.target.value);
-//   };
-
-
-// const filteredProperties = properties.filter(property => {
-//     const propertytype = property.type|| ''; // If property.name is undefined or null, set it to an empty string
-//     return propertytype.toLowerCase().includes(searchTerm.toLowerCase());
-//   });
-
-// const [properties, setProperties] = useState([]);
-//   const [filteredProperties, setFilteredProperties] = useState([]);
-//   const [placeFilter, setPlaceFilter] = useState('');
-
-//   useEffect(() => {
-//     fetchData();
-//   }, []);
-
-//   const fetchData = async () => {
-//     try {
-//       const response = await axios.get('http://localhost:4008/getpro');
-//       setProperties(response.data); // Assuming the API returns an array of properties
-//       setFilteredProperties(response.data); // Initialize filtered properties with all properties
-//     } catch (error) {
-//       console.error('Error fetching data:', error);
-//     }
-//   };
-
-//   const handlePlaceFilterChange = (e) => {
-//     setPlaceFilter(e.target.value);
-//   };
-
-//   const filterPropertiesByPlace = () => {
-//     if (!placeFilter) {
-//       setFilteredProperties(properties); // If no filter, show all properties
-//     } else {
-//       const filtered = properties.filter(property =>
-//         // Assuming each property object has a 'location' property
-//         property.location.toLowerCase().includes(placeFilter.toLowerCase())
-//       );
-//       setFilteredProperties(filtered);
-//     }
-//   };
-
-//   useEffect(() => {
-//     filterPropertiesByPlace();
-//   }, [placeFilter]);
-
 const [properties, setProperties] = useState([]);
 const [filteredProperties, setFilteredProperties] = useState([]);
 const [placeFilter, setPlaceFilter] = useState('');
@@ -93,7 +33,7 @@ const filterPropertiesByPlace = () => {
     setFilteredProperties(properties); // If no filter, show all properties
   } else {
     const filtered = properties.filter(property =>
-      // Assuming each property object has a 'location' property
+     
       property.sell.toLowerCase().includes(placeFilter.toLowerCase())
     );
     setFilteredProperties(filtered);
@@ -107,48 +47,42 @@ const handleSubmit = (e) => {
 
   return (
     <div>
-      {/* <input
-        type="text"
-        placeholder="Search..."
-        value={searchTerm}
-        onChange={handleSearch}
-      />
-      <ul>
-        {filteredProperties.map(property => (
-          <li key={property.id}>{property.name}</li>
-        ))}
-      </ul> */}
-
-{/* <input
-        type="text"
-        placeholder="Enter place to filter by"
-        value={placeFilter}
-        onChange={handlePlaceFilterChange}
-      />
-      <ul>
-        {filteredProperties.map(property => (
-          <li key={property.id}>{property.name}</li>
-          // Replace property.name with whatever property information you want to display
-        ))}
-      </ul> */}
-
-<form onSubmit={handleSubmit}>
+<form onSubmit={handleSubmit} style={{alignItems:'center',padding:'2% 30% 2% 40%'}}>
         <input
           type="text"
-          placeholder="Enter place to filter by"
+          placeholder="Search"
           value={placeFilter}
           onChange={handlePlaceFilterChange}
+          style={{height:'50px',borderRadius:'10px 0px 0px 10px'}}
         />
-        <button type="submit">Filter</button>
+        <button type="submit"  style={{height:'50px',borderRadius:'0px 10px 10px 0px',backgroundColor:'white'}}><IoSearch /></button>
       </form>
-      <ul>
-        {filteredProperties.map(property => (
-          <li key={property.id}>{property.
-            bedrooms
-            }</li>
-          // Replace property.name with whatever property information you want to display
-        ))}
-      </ul>
+ 
+        <div className="gallery">
+    
+    {filteredProperties.map(data => (
+     <div>
+      {/* <Link to={`/detail/${data._id}/${data.email}`} style={{textDecoration:'none'}}> */}
+      <Link to='/2' style={{textDecoration:'none'}}>
+     <div key={data.id} className="image-item">
+      
+       <img src={data.image} alt={data.title} />
+       <p>{data.title}</p>
+       <p  style={{color:'#707070'}}>{data.type} , {data.sell}</p>
+<p style={{color:'black'}}>
+{data.regularPrice} <br></br>
+{data.description}
+</p>
+<div style={{display:'flex'}}>
+<p  style={{color:'#707070'}}><CiLocationOn />{data.address}</p>
+<p style={{color:'red',marginLeft:'20%',fontSize:'18px'}}><CiHeart /></p></div>
+
+     </div>
+     </Link>
+     </div>
+   ))}
+  
+ </div>
     </div>
   )
 }

@@ -8,6 +8,7 @@ const Userlogin=async(req,res) => {
     if (existingemail){
        if(existingemail.email ===email && (await bcrypt.compare(password,existingemail.password))){
        res.send("login successful");
+    //    res.json({id: existingemail._id,message:'login successful'})
        }
        else{
         res.send("login failed");

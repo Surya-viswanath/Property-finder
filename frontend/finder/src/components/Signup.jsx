@@ -101,11 +101,12 @@ const handleSubmit =async(event)=>{
     event.preventDefault()
     try{
     const display =await axios.post('http://localhost:4008/createagent',{name,email, password,nationality,languages,experience,details,phone,profile})
-    console.log(display.data)}
+    console.log(display.data)
+    }
     catch{
       
     }
-    navigate(`/open/${pname}/${pemail}`);
+    navigate(`/open/${pemail}`);
   
   }
 
@@ -272,6 +273,7 @@ className='signbut'
     >
     Create
     </button>
+    
  </div>
  </div>
   </Form>

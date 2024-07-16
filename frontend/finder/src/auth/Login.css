@@ -1,0 +1,15 @@
+.login-form-container {
+    margin: 5% 25%;
+    background-color: white;
+    background-color: var(--bg-color-dark); /* Fallback for dark mode */
+   
+    border-radius: 1rem; /* 16px */
+   
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow with light opacity */
+}
+
+@media (prefers-color-scheme: dark) {
+    .login-form-container {
+        background-color: #1a202c; /* Equivalent to dark:bg-gray-900 */
+    }
+}

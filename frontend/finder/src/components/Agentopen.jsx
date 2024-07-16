@@ -56,7 +56,7 @@ function Agentopen() {
      try{
        const responses = await axios.get('http://localhost:4008/getagent')     
      setsecond(responses.data)
-     console.log(second);
+    //  console.log(second);
      }
      catch{ 
      }
@@ -71,7 +71,7 @@ function Agentopen() {
 
 const mailid = second.filter((item)=>item.email===getmail)
 
-  console.log(mailid);
+  // console.log(mailid);
 
  const handleWhatsAppButtonClick = () => {
   const phoneNumber = mailid[0].phone; 
@@ -86,8 +86,7 @@ const mailid = second.filter((item)=>item.email===getmail)
   return (
     <div >
         <div>
-         
-<Container style={{backgroundColor:'#F6F7FB',alignItems:'center'}}>
+        <Container style={{backgroundColor:'#F6F7FB',alignItems:'center'}}>
 {mailid.map((helo)=>(
       // 
       <Row className="justify-content-md-center" style={{paddingTop:'10%',paddingBottom:'10%'}}>
@@ -112,9 +111,8 @@ const mailid = second.filter((item)=>item.email===getmail)
       
       ))}
       </Container>
-
-      
 {/* * */}
+
 {mailid.map((helo)=>(
 <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
