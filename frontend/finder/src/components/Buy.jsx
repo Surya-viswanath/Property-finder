@@ -9,12 +9,13 @@ import { GiResize } from "react-icons/gi";
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
 import { IoLogoWhatsapp } from "react-icons/io";
+import { FaSearch } from "react-icons/fa";
+import { TbCategory2 } from "react-icons/tb";
+ 
 import './Rent.css';
 function Buy() {
   const { sell } = useParams();
   const [first, setFirst] = useState([]);
-
-
   useEffect(() => {
     const handleItems = async () => {
       try {
@@ -36,12 +37,11 @@ console.log(sells);
 const filteredData = first.filter((item) => item.sell === sells);
 
 
-
-
-
   return (
     <div style={{marginTop:'2%',marginLeft:'2%',marginRight:'2%'}}> 
     <h2>Explore properties</h2>
+    
+    {/* buy */}
   <div className="gallery">
   
      {filteredData.map(data => (

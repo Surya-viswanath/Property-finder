@@ -8,6 +8,8 @@ import Searchinput from '../Search/Searchinput';
 import Propertilist from '../Search/Propertilist';
 import Propertylist2 from '../Search/Propertylist2';
 import { useNavigate, useParams } from 'react-router-dom';
+import Searching from '../Search/Searching';
+
 function Bannerop() {
 const navigate = useNavigate();
 const {id}=useParams();

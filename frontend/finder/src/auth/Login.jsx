@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 import { GoInfo } from "react-icons/go";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from './AuthContext';
-import './Login.css';
+// import './Login.css';
 
 function Login() {
     const [passwordShow, setPasswordShow] = useState(false);
@@ -47,33 +47,31 @@ function Login() {
     };
   return (
     <div>
-       <div >
-                <form onSubmit={handleSubmit(onSubmit)} style={{alignItems:'center'}}>
-                    <div className="login-form-container" >
-                        <div >
-                            <div className="text-center ">
-                                <h1>
+         <div className="flex justify-center items-center w-full h-screen">
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <div className="bg-white dark:bg-gray-900 px-10 py-5 rounded-xl w-screen shadow-md max-w-sm">
+                        <div className="space-y-4">
+                            <div className="text-center space-y-2">
+                                <h1 className="text-xl font-semibold">
                                     Welcome back
                                 </h1>
                                 <small className="text-gray-400 dark:text-gray-200">
                                     Sign in to your account to start
                                 </small>
                             </div>
-                            <div style={{marginTop:'2%'}}>
+                            <div>
                                 <label
                                     htmlFor="email"
-                                    className="block mb-1 text-gray-600 text-sm font-medium " style={{float:'left',marginLeft:'40%'}}
+                                    className="block mb-1 text-gray-600 text-sm font-medium " style={{float:'left'}}
                                 >
                                     Email
                                 </label>
-                                <br></br>
                                 <input
                                     type="text"
                                     id="email"
                                     {...register("email", {
                                         required: "Email is Required",
                                     })}
-                                    style={{marginLeft:'40%'}}
                                     className={`w-full rounded-lg border border-stroke bg-transparent py-2 px-3 outline-none text-gray-600 focus-visible:shadow-none dark:border-form-strokeDark dark:bg-form-input ${
                                         errors.email
                                             ? "border-red-500 focus:border-red-500"
@@ -90,21 +88,19 @@ function Login() {
                                     </span>
                                 )}
                             </div>
-                            <div className="relative"  style={{marginTop:'2%'}}>
+                            <div className="relative">
                                 <label
                                     htmlFor="password"
-                                    className="block mb-1 text-gray-600 text-sm font-medium" style={{float:'left',marginLeft:'40%'}}
+                                    className="block mb-1 text-gray-600 text-sm font-medium" style={{float:'left'}}
                                 >
                                     Password
                                 </label>
-                                <br></br>
                                 <input
                                     type={passwordShow ? "text" : "password"}
                                     id="password"
                                     {...register("password", {
                                         required: "Password is Required",
                                     })}
-                                    style={{marginLeft:'40%'}}
                                     className={`w-full rounded-lg border border-stroke bg-transparent py-2 px-3 outline-none text-gray-600 focus-visible:shadow-none dark:border-form-strokeDark dark:bg-form-input  ${
                                         errors.password
                                             ? "border-red-500 focus:border-red-500"
@@ -119,7 +115,6 @@ function Login() {
                                         setPasswordShow(!passwordShow)
                                     }
                                     className="absolute top-[38px] text-gray-500 right-3 cursor-pointer select-none" 
-                                    style={{marginLeft:'-20px'}}
                                 >
                                     {passwordShow ? (
                                         <svg
@@ -170,11 +165,11 @@ function Login() {
                                 )}
                             </div>
                         </div>
-                        <button className="mt-4 w-full  text-white py-2 rounded-md text-md tracking-wide" style={{backgroundColor:'#9C0C0D',marginLeft:'40%',marginTop:'2%'}} >
+                        <button className="mt-4 w-full  text-white py-2 rounded-md text-md tracking-wide" style={{backgroundColor:'#9C0C0D'}}>
                             Sign In
                         </button>
                         <div>
-                            <div className="flex items-center my-3" style={{marginLeft:'40%',marginTop:'2%'}}>
+                            <div className="flex items-center my-3">
                                 <span
                                     aria-hidden="true"
                                     className="grow bg-gray-100 rounded h-0.5 dark:bg-gray-700/75"

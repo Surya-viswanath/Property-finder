@@ -6,9 +6,10 @@
     background-color: 'white';
     height:70vh;
     overflow-x: hidden;
+    
 }
 .find{
-    color: white;
+    color: #ef5e4e;
     font-size: 41.856px;
     text-align: center;
    font-weight: 600;

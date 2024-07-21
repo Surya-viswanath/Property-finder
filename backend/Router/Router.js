@@ -13,12 +13,14 @@ const Customerlogin = require('../Controller/Customerlogin');
 const Adminsignup = require('../Controller/Adminsignup');
 const Adminlogin = require('../Controller/Adminlogin');
 const { getcustomer, deletecustomer}=require('../Controller/Customer');
+const {postRequest, findAll }= require('../Controller/Agent/Agent');
 const router = express.Router();
 
 
 
 // router.route('/createlist').post(Createlist)
-// router.route('/getlist').get(getcollection)
+router.route('/rqst').post(postRequest)
+router.route('/rqst').get(findAll)
 router.route('/adminsign').post(Adminsignup)
 router.route('/adminlogin').post(Adminlogin)
 router.route('/Customersign').post(Customersignup)

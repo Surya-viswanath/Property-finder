@@ -1,23 +1,4 @@
-// const bcrypt = require('bcrypt');
-// const Customer = require('./Customerschema');
-// const Customerlogin=async(req,res) => {
-//     const {email,password}=req.body
-//     const existingemail=await Customer.findOne({email})
-//     if (existingemail){
-//        if(existingemail.email ===email && (await bcrypt.compare(password,existingemail.password))){
-//         res.json({id: existingemail._id,message:'login successful'})
-//     //    res.send("login successful");
-//        }
-//        else{
-//         res.send("login failed");
-//        }
-//     }
-//     else{
-//         console.log("no data in db");
-//         res.json("no data in db");
-//     }
-// }
-//    module.exports = Customerlogin
+
 
 const Customer = require('./Customerschema');
 

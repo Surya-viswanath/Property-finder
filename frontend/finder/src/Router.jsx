@@ -48,6 +48,8 @@ import Searched1 from './Category/Searched1'
 import Dashboard from './Dash/Dashboard'
 import Register from './auth/Register'
 import Main from './Main/Main'
+import Buysearch from './components/Buysearch'
+import RequestAgent from './Agent/RequestAgent'
 
 function Router() {
   const [wishlist, setWishlist] = useState([]);
@@ -62,6 +64,9 @@ function Router() {
       
       <BrowserRouter>
       <Routes>
+      <Route path='/Main' element={<><Main/></>}></Route>
+      <Route path='/Agentrqst' element={<><Usermenu/><RequestAgent/></>}></Route>
+        <Route path='/buys' element={<><Usermenu/><Buysearch/></>}></Route>
         <Route path='/dash' element={<><Dashboard/></>}></Route>
         <Route path='/admin/:id' element={<><Adminmenu/> <Admindash/></>}></Route>
         <Route path='/agentlist' element={<><Adminmenu/> <Agentlist/></>}></Route>
@@ -71,7 +76,7 @@ function Router() {
         <Route path='/aa' element={<><Menus/> <Bannersearch/></>}></Route>
         {/* <Route path='/' element={<><Menus/> <Banner/> <HomeCard/></>}></Route>
         <Route path='/home' element={<><Menus/> <Banner/> <Home2Card/></>}></Route> */}
-        <Route path='/' element={<><Menus/> <Banner/></>}></Route>
+        <Route path='/' element={<><Menus/><Banner/></>}></Route>
         {/* <Route path='/home/:email' element={<><Menus/> <Bannerop/></>}></Route> */}
         <Route path='/home' element={<><Usermenu/><Bannerop/></>}></Route>
         {/* <Route path='/home' element={<><Main/><Bannerop/></>}></Route> */}
