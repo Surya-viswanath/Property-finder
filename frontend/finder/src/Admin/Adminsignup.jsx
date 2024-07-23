@@ -28,7 +28,7 @@ const handlename =(event)=>{
    
       event.preventDefault()
       try{
-      const display =await axios.post('http://localhost:4008/adminsign',{name,email,phone,password})
+      const display =await axios.post('https://property-finder-backend.onrender.com/adminsign',{name,email,phone,password})
       console.log(display.data)}
       catch{ 
       }
