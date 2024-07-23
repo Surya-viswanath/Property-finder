@@ -21,7 +21,7 @@ export function AuthProvider({ children }) {
 
     const signUp = async (firstname, lastname, email, password) => {
         try {
-            const response = await axios.post('http://localhost:4008/Customersign', { firstname, lastname, email, password });
+            const response = await axios.post('https://property-finder-backend.onrender.com/Customersign', { firstname, lastname, email, password });
             setUser(response.data.user);
             return response;
         } catch (error) {
@@ -32,7 +32,7 @@ export function AuthProvider({ children }) {
 
     // const login = async (email, password) => {
     //     try {
-    //         const response = await axios.post('http://localhost:4000/login', { email, password });
+    //         const response = await axios.post('https://property-finder-backend.onrender.com/login', { email, password });
     //         setUser(response.data.user);
     //         console.log('Received response:', response.data);
     //         return response;
@@ -44,7 +44,7 @@ export function AuthProvider({ children }) {
 
     const login = async (email, password) => {
         try {
-            const response = await axios.post('http://localhost:4008/customerlogin', { email, password });
+            const response = await axios.post('https://property-finder-backend.onrender.com/customerlogin', { email, password });
             setUser(response.data.user);
             console.log('Received response:', response.data);
             return response;
