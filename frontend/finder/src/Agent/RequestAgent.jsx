@@ -20,7 +20,7 @@ const RequestAgent = () => {
     useEffect(() => {
         const fetchPendingRequest = async () => {
             try {
-                const response = await axios.get(`http://localhost:4000/check-pending-request?userId=${user?._id}`);
+                const response = await axios.get(`https://property-finder-backend.onrender.com/check-pending-request?userId=${user?._id}`);
                 setHasPendingRequest(response.data.hasPendingRequest);
             } catch (error) {
                 console.error("Error checking pending request:", error);
@@ -44,7 +44,7 @@ const RequestAgent = () => {
             };
 
             try {
-                const requestRes = await axios.post('http://localhost:4008/rqst', request);
+                const requestRes = await axios.post('https://property-finder-backend.onrender.com/rqst', request);
                 if (requestRes.data._id) {
                     toast.success('Request for organizer, wait for confirmation');
                     reset();
