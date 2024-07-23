@@ -10,7 +10,7 @@ function Wishlist() {
     // Fetch properties from your backend when component mounts
     const fetchProperties = async () => {
       try {
-        const response = await axios.get('http://localhost:4008/getagent');
+        const response = await axios.get('https://property-finder-backend.onrender.com/getagent');
         setProperties(response.data);
       } catch (error) {
         console.error('Error fetching properties', error);
