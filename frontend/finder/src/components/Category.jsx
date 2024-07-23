@@ -16,7 +16,7 @@
 
 //   const fetchData = async () => {
 //     try {
-//       const response = await axios.get('http://localhost:4008/getpro');
+//       const response = await axios.get('https://property-finder-backend.onrender.com/getpro');
 //       setProperties(response.data); // Assuming the API returns an array of properties
 //       setFilteredProperties(response.data); // Initialize filtered properties with all properties
 //     } catch (error) {
@@ -153,7 +153,7 @@ function Category() {
   
     useEffect(() => {
       // Fetch properties using Axios
-      axios.get('http://localhost:4008/getpro')
+      axios.get('https://property-finder-backend.onrender.com/getpro')
         .then(response => {
           setProperties(response.data); // Assuming the response contains an array of properties
           setFilteredProperties(response.data); // Initially set filtered properties to all properties
