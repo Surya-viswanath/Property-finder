@@ -16,7 +16,7 @@
 
 // const fetchData = async () => {
 //   try {
-//     const response = await axios.get('http://localhost:4008/getpro');
+//     const response = await axios.get('https://property-finder-backend.onrender.com/getpro');
 //     setProperties(response.data); // Assuming the API returns an array of properties
 //     setFilteredProperties(response.data); // Initialize filtered properties with all properties
 //   } catch (error) {
