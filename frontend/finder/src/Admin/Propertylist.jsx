@@ -11,7 +11,7 @@ function Propertylist() {
     useEffect(() => {
         const handleItems = async () => {
           try {
-            const response = await axios.get('http://localhost:4008/getpro');
+            const response = await axios.get('https://property-finder-backend.onrender.com/getpro');
             setProperty(response.data);
           } catch (error) {
             console.error('Error fetching data:', error);
@@ -22,7 +22,7 @@ function Propertylist() {
       }, []);
     const handleDelete = async (id) => {
         try {
-          await axios.delete(`http://localhost:4008/deleteList/${id}`);
+          await axios.delete(`https://property-finder-backend.onrender.com/deleteList/${id}`);
           // Update the state after successful deletion
           setProperty(Property.filter(list => list._id !== id));
         } catch (error) {
