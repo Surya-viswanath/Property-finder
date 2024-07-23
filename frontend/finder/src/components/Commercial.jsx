@@ -18,7 +18,7 @@ function Commercial() {
   useEffect(() => {
     const handleItems = async () => {
       try {
-        const response = await axios.get('http://localhost:4008/getpro');
+        const response = await axios.get('https://property-finder-backend.onrender.comgetpro');
         setFirst(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
