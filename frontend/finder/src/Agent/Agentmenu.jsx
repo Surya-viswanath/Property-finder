@@ -30,7 +30,7 @@ const [first,setfirst]= useState([]);
     const pemail=email;
     event.preventDefault();
     try {
-      const display = await axios.post('http://localhost:4008/login', { email, password });
+      const display = await axios.post('https://property-finder-backend.onrender.com/login', { email, password });
       console.log(display.data);
       const userData = display.data;
       localStorage.setItem('user', JSON.stringify(userData));
@@ -45,7 +45,7 @@ const [first,setfirst]= useState([]);
   useEffect(() => {
     const handleItems = async () => {
       try {
-        const response = await axios.get('http://localhost:4008/getpro');
+        const response = await axios.get('https://property-finder-backend.onrender.com/getpro');
         setfirst(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
