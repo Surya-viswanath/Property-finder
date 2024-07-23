@@ -18,7 +18,7 @@ function Searching() {
     useEffect(() => {
         const fetchEvents = async () => {
             try {
-                const response = await axios.get("http://localhost:4008/getpro");
+                const response = await axios.get("https://property-finder-backend.onrender.com/getpro");
                 setAllEvents(response.data);
                 setFilteredEvents(response.data);
                 setIsLoading(false);
