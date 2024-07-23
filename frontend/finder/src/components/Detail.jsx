@@ -29,7 +29,7 @@ function Detail({ properties}) {
   useEffect(()=>{
     const handleitems =async()=>{
      try{
-       const response = await axios.get('http://localhost:4008/getpro')     
+       const response = await axios.get('https://property-finder-backend.onrender.com/getpro')     
      setfirst(response.data)
     //  console.log(first);
      }
@@ -43,7 +43,7 @@ function Detail({ properties}) {
   useEffect(()=>{
     const agent =async()=>{
      try{
-       const responses = await axios.get('http://localhost:4008/getagent')     
+       const responses = await axios.get('https://property-finder-backend.onrender.com/getagent')     
      setsecond(responses.data)
      console.log(second);
      }
@@ -75,7 +75,7 @@ const mailid = second.filter((item)=>item.email===getmail)
 
 const addToWishlist = async (propertyId, userId) => {
   try {
-    const response = await axios.post('http://localhost:4008/addToWishlist', { propertyId, userId });
+    const response = await axios.post('https://property-finder-backend.onrender.com/addToWishlist', { propertyId, userId });
     console.log(response.data); // Assuming the response contains some confirmation message
     // You can also show a toast or notification to inform the user that the property has been added to the wishlist
   } catch (error) {
