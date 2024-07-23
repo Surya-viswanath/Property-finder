@@ -9,7 +9,7 @@ console.log(data);
 const [addedToWishlist, setAddedToWishlist] = useState(false);
 const addToWishlist = async () => {
   try {
-    await axios.post('http://localhost:4008/postwish', { productId: data._id });
+    await axios.post('https://property-finder-backend.onrender.com/postwish', { productId: data._id });
     setAddedToWishlist(true);
   } catch (error) {
     console.error('Error adding to wishlist:', error);
